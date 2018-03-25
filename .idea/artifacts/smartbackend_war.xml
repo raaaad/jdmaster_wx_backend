@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="smartbackend:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="smartbackend.war">
+      <element id="artifact" artifact-name="smartbackend:war exploded" />
+    </root>
+  </artifact>
+</component>
