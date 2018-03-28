@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.smartbackend.dao.TraineeDao" >
+    <resultMap id="BaseResultMap" type="com.smartbackend.model.Trainee" >
+        <id column="id" property="id" jdbcType="INTEGER" />
+        <result column="name" property="name" jdbcType="VARCHAR" />
+        <result column="gender" property="gender" jdbcType="VARCHAR" />
+        <result column="school" property="school" jdbcType="VARCHAR"/>
+        <result column="telephone" property="telephone" jdbcType="VARCHAR"/>
+        <result column="email" property="mail" jdbcType="VARCHAR"/>
+        <result column="major" property="major" jdbcType="VARCHAR" />
+        <result column="minor" property="minor" jdbcType="VARCHAR"/>
+        <result column="workdayperweek" property="workDayPerWeek" jdbcType="INTEGER"/>
+    </resultMap>
+    <select id="getAllTrainees" resultMap="BaseResultMap">
+        select name,gender,school,telephone,email,major,minor,workdayperweek
+        from trainee
+    </select>
+    <select id="getTraineeById" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+        select name,gender,school,telephone,email,major,minor,workdayperweek
+        from trainee
+        where id = #{id,jdbcType=INTEGER}
+    </select>
+</mapper>
