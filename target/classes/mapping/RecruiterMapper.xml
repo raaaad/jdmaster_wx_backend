@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.smartbackend.dao.RecruiterDao" >
+    <resultMap id="BaseResultMap" type="com.smartbackend.model.Recruiter" >
+        <id column="id" property="id" jdbcType="INTEGER" />
+        <result column="company" property="company" jdbcType="VARCHAR" />
+        <result column="email" property="email" jdbcType="VARCHAR" />
+        <result column="telephone" property="telephone" jdbcType="VARCHAR" />
+        <result column="wechat" property="wechat" jdbcType="VARCHAR" />
+    </resultMap>
+    <select id="getRecruiterById" parameterType="java.lang.Integer">
+        select *
+        from user
+        where id = #{id,jdbcType=INTEGER}
+    </select>
+    <insert id="insertRecruiter">
+        INSERT INTO recruiter (company,telephone,email,wechat,gmt_created,gmt_modified)
+                VALUES (#{company},#{telephone},#{email},#{wechat},NOW(),NOW())
+    </insert>
+
+</mapper>
