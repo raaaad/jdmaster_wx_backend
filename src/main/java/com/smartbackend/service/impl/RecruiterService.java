@@ -1,6 +1,7 @@
 package com.smartbackend.service.impl;
 
 import com.smartbackend.dao.RecruiterDao;
+import com.smartbackend.model.Recruiter;
 import com.smartbackend.service.IRecruiterService;
 import org.springframework.stereotype.Service;
 
@@ -14,5 +15,10 @@ public class RecruiterService implements IRecruiterService {
     @Override
     public void insertRecruiter(String company, String telephone, String email, String wechat) {
         recruiterDao.insertRecruiter(company,telephone,email,wechat);
+    }
+
+    @Override
+    public Recruiter getRecruiterByWechat(String wechat){
+        return recruiterDao.getRecruiterByWechat(wechat);
     }
 }

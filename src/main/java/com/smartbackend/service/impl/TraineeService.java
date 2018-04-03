@@ -22,4 +22,16 @@ public class TraineeService implements ITraineeService{
     public Trainee getTraineeById(int id){
         return traineeDao.getTraineeById(id);
     }
+
+    @Override
+    public void addTrainee(String name,String gender,String school,String telephone,String major,String minor,
+                           String wechat,Integer workdayperweek,String startwork,String email){
+        traineeDao.addTrainee(name,gender,school,telephone,major,minor,wechat,workdayperweek,startwork,email);
+    }
+
+    @Override
+    public Trainee getTraineeByWechat(String wechat){
+        return traineeDao.getTraineeByWechat(wechat);
+    }
+
 }

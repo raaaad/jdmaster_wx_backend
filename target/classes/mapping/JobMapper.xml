@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.smartbackend.dao.JobDao" >
+    <resultMap id="BaseResultMap" type="com.smartbackend.model.Job">
+        <id column="id" property="id" jdbcType="INTEGER" />
+        <result column="company" property="company" jdbcType="VARCHAR" />
+        <result column="position" property="position" jdbcType="VARCHAR" />
+        <result column="workdayperweek" property="workdayperweek" jdbcType="INTEGER" />
+        <result column="address" property="address" jdbcType="VARCHAR" />
+        <result column="minSalary" property="minSalary" jdbcType="INTEGER" />
+        <result column="maxSalary" property="maxSalary" jdbcType="INTEGER" />
+        <result column="education" property="education" jdbcType="VARCHAR" />
+        <result column="major" property="major" jdbcType="VARCHAR" />
+        <result column="recruitnumber" property="recruitnumber" jdbcType="INTEGER" />
+        <result column="monthforwork" property="monthforwork" jdbcType="INTEGER" />
+        <result column="correction" property="correction" jdbcType="INTEGER" />
+        <result column="hrposition" property="hrposition" jdbcType="VARCHAR" />
+        <result column="endtime" property="endtime" jdbcType="VARCHAR" />
+        <result column="description" property="description" jdbcType="VARCHAR" />
+        <result column="recruiterWechat" property="recruiterWechat" jdbcType="VARCHAR" />
+        <result column="picture" property="picture" jdbcType="VARCHAR" />
+    </resultMap>
+    <select id="getJobById" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+        select *
+        from job
+        where id = #{id,jdbcType=INTEGER}
+    </select>
+    <select id="getJobs" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+        select *
+        from job
+    </select>
+    <insert id="addJob">
+        INSERT INTO job (company,position,workdayperweek,minSalary,maxSalary,address,education,major,
+                         recruitnumber,monthforwork,correction,endtime,hrposition,description,recruiterWechat,
+                         picture,gmt_created,gmt_modified)
+        VALUES (#{company},#{position},${workDayPerWeek},${minSalary},${maxSalary},#{address},#{education},#{major},
+                           ${recruitNumber},${monthForWork},${correction},#{endTime},#{hrPosition},#{description},#{recruiterWechat},
+                           #{picture},NOW(),NOW())
+    </insert>
+
+</mapper>

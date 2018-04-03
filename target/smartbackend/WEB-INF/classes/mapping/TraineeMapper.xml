@@ -21,4 +21,11 @@
         from trainee
         where id = #{id,jdbcType=INTEGER}
     </select>
+    <insert id="addTrainee">
+        INSERT INTO trainee(name,gender,school,telephone,major,minor,wechat,workdayperweek,startwork,email)
+                VALUES (#{name},#{gender},#{school},#{telephone},#{major},#{minor},#{wechat},${workdayperweek},#{startwork},#{email})
+    </insert>
+    <select id="getTraineeByWechat" resultMap="BaseResultMap" parameterType="java.lang.String">
+        SELECT * FROM trainee WHERE wechat = #{wechat}
+    </select>
 </mapper>

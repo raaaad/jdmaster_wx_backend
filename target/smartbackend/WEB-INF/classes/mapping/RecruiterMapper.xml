@@ -8,10 +8,10 @@
         <result column="telephone" property="telephone" jdbcType="VARCHAR" />
         <result column="wechat" property="wechat" jdbcType="VARCHAR" />
     </resultMap>
-    <select id="getRecruiterById" parameterType="java.lang.Integer">
+    <select id="getRecruiterByWechat" parameterType="java.lang.String" resultMap="BaseResultMap">
         select *
-        from user
-        where id = #{id,jdbcType=INTEGER}
+        from recruiter
+        where wechat = #{wechat}
     </select>
     <insert id="insertRecruiter">
         INSERT INTO recruiter (company,telephone,email,wechat,gmt_created,gmt_modified)
