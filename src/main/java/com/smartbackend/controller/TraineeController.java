@@ -41,11 +41,16 @@ public class TraineeController {
         String telephone = request.getParameter("telephone");
         String major = request.getParameter("major");
         String minor = request.getParameter("minor");
+        String education = request.getParameter("education");
         String wechat = request.getParameter("wechat");
-        Integer workdayperweek = Integer.parseInt(request.getParameter("workdayperweek"));
+        if(!request.getParameter("workdayperweek").isEmpty()){
+            Integer workdayperweek = Integer.parseInt(request.getParameter("workdayperweek"));
+        }
+        Integer workdayperweek = 0;
         String startwork = request.getParameter("startwork");
         String email = request.getParameter("email");
-        this.traineeService.addTrainee(name,gender,school,telephone,major,minor,wechat,workdayperweek,startwork,email);
+        String graduateTime = request.getParameter("graduateTime");
+        this.traineeService.addTrainee(name,gender,school,telephone,major,minor,wechat,workdayperweek,startwork,email,education,graduateTime);
         //返回值给微信小程序
         //Writer out = response.getWriter();
         //out.write("恭喜您，已成功注册！");
@@ -74,7 +79,7 @@ public class TraineeController {
         }
     }
 
-    @RequestMapping("getTraineeInfo")
+    @RequestMapping("getInfo")
     @ResponseBody
     public Trainee getTraineeInfo(HttpServletRequest request, HttpServletResponse response) throws ServletException,IOException{
         response.setContentType("text/html;charset=utf-8");

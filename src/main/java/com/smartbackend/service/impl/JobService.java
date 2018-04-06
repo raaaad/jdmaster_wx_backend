@@ -30,4 +30,33 @@ public class JobService implements IJobService {
     public List<Job> getJobs(){
         return this.jobDao.getJobs();
     }
+
+    @Override
+    public List<Job> getMyJobs(String wechat){
+        return this.jobDao.getMyJobs(wechat);
+    }
+
+    @Override
+    public void changeJobStatus(Integer id,Integer status){
+        this.jobDao.changeJobStatus(id,status);
+    }
+
+    @Override
+    public List<Job> getMyJobByStatus(String wechat,Integer status){
+        return this.jobDao.getMyJobByStatus(wechat,status);
+    }
+
+    @Override
+    public List<Job> getJobsByStatus(String status,String wechat){
+        if("view".equals(status)) {
+            return this.jobDao.getJobsViewd(wechat);
+        } else if ("follow".equals(status)) {
+            return this.jobDao.getJobsFollowed(wechat);
+        } else if("delivery".equals(status)){
+            return this.jobDao.getJobsDeliveried(wechat);
+        }else{
+            return this.jobDao.getJobs();
+        }
+    }
+
 }

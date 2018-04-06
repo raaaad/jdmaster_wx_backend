@@ -19,6 +19,7 @@ public class Job {
     private String hrposition;
     private String recruiterWechat;
     private String picture;
+    private Integer status;
 
     public Integer getId() {
         return id;
@@ -154,5 +155,13 @@ public class Job {
 
     public void setPicture(String picture) {
         this.picture = picture;
+    }
+
+    public Integer getStatus() {
+        return status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
     }
 }

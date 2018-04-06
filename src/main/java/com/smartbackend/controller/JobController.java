@@ -13,6 +13,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.Writer;
 import java.util.List;
 
 @Controller
@@ -34,6 +35,7 @@ public class JobController {
         return job;
     }
 
+    //学生获取所有工作列表
     @RequestMapping("getJobs")
     @ResponseBody
     public List<Job> getJobs(HttpServletRequest request, HttpServletResponse response) throws ServletException,IOException{
@@ -44,6 +46,64 @@ public class JobController {
         response.setHeader("Access-Control-Allow-Methods", "GET,POST");
         List<Job> jobs = this.jobService.getJobs();
         return jobs;
+    }
+
+    //学生根据自己的浏览、关注或投递状态获取工作列表
+    @RequestMapping("getJobsByStatus")
+    @ResponseBody
+    public List<Job> getJobsByStatus(HttpServletRequest request, HttpServletResponse response) throws ServletException,IOException{
+        response.setContentType("text/html;charset=utf-8");
+        /* 设置响应头允许ajax跨域访问 */
+        response.setHeader("Access-Control-Allow-Origin", "*");
+        /* 星号表示所有的异域请求都可以接受， */
+        response.setHeader("Access-Control-Allow-Methods", "GET,POST");
+        String status = request.getParameter("status");
+        String wechat = request.getParameter("wechat");
+        return this.jobService.getJobsByStatus(status,wechat);
+    }
+
+    //HR获取自己发布的工作列表
+    @RequestMapping("getMyJobs")
+    @ResponseBody
+    public List<Job>getMyJobs(HttpServletRequest request,HttpServletResponse response) throws ServletException,IOException{
+        response.setContentType("text/html;charset=utf-8");
+        /* 设置响应头允许ajax跨域访问 */
+        response.setHeader("Access-Control-Allow-Origin", "*");
+        /* 星号表示所有的异域请求都可以接受， */
+        response.setHeader("Access-Control-Allow-Methods", "GET,POST");
+        String wechat = request.getParameter("wechat");
+        return this.jobService.getMyJobs(wechat);
+    }
+
+    //HR根据JD状态获取自己发布的工作列表
+    @RequestMapping("getMyJobByStatus")
+    @ResponseBody
+    public List<Job>getMyJobByStatus(HttpServletRequest request,HttpServletResponse response) throws ServletException,IOException{
+        response.setContentType("text/html;charset=utf-8");
+        /* 设置响应头允许ajax跨域访问 */
+        response.setHeader("Access-Control-Allow-Origin", "*");
+        /* 星号表示所有的异域请求都可以接受， */
+        response.setHeader("Access-Control-Allow-Methods", "GET,POST");
+        String wechat = request.getParameter("wechat");
+        Integer status = Integer.parseInt(request.getParameter("status"));
+        return this.jobService.getMyJobByStatus(wechat,status);
+    }
+
+    //HR更改发布的工作的状态
+    @RequestMapping("changeJobStatus")
+    public void changeJobStatus(HttpServletRequest request,HttpServletResponse response) throws ServletException,IOException{
+        response.setContentType("text/html;charset=utf-8");
+        /* 设置响应头允许ajax跨域访问 */
+        response.setHeader("Access-Control-Allow-Origin", "*");
+        /* 星号表示所有的异域请求都可以接受， */
+        response.setHeader("Access-Control-Allow-Methods", "GET,POST");
+        Integer id = Integer.parseInt(request.getParameter("id"));
+        Integer status = Integer.parseInt(request.getParameter("status"));
+        this.jobService.changeJobStatus(id,status);
+        //返回值给微信小程序
+        Writer out = response.getWriter();
+        out.write("已改变JD状态！");
+        out.flush();
     }
 
     @RequestMapping("addJob")

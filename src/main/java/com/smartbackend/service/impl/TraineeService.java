@@ -25,8 +25,8 @@ public class TraineeService implements ITraineeService{
 
     @Override
     public void addTrainee(String name,String gender,String school,String telephone,String major,String minor,
-                           String wechat,Integer workdayperweek,String startwork,String email){
-        traineeDao.addTrainee(name,gender,school,telephone,major,minor,wechat,workdayperweek,startwork,email);
+                           String wechat,Integer workdayperweek,String startwork,String email,String education,String graduateTime){
+        traineeDao.addTrainee(name,gender,school,telephone,major,minor,wechat,workdayperweek,startwork,email,education,graduateTime);
     }
 
     @Override

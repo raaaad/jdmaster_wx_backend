@@ -2,7 +2,7 @@ package com.smartbackend.model;
 
 public class Resume {
     private Integer id;
-    private String traineeWechat;
+    private String traineewechat;
     private String url;
 
     public Integer getId() {
@@ -13,12 +13,12 @@ public class Resume {
         this.id = id;
     }
 
-    public String getTraineeWechat() {
-        return traineeWechat;
+    public String getTraineewechat() {
+        return traineewechat;
     }
 
-    public void setTraineeWechat(String traineeWechat) {
-        this.traineeWechat = traineeWechat;
+    public void setTraineewechat(String traineeWechat) {
+        this.traineewechat = traineeWechat;
     }
 
     public String getUrl() {

@@ -6,4 +6,11 @@
         <result column="traineewechat" property="traineewechat" jdbcType="VARCHAR" />
         <result column="url" property="url" jdbcType="VARCHAR" />
     </resultMap>
+    <select id="getResumes" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+        SELECT * FROM `resume` WHERE id in
+                (SELECT resumeid FROM hunting WHERE jobid = #{jobid,jdbcType=INTEGER})
+    </select>
+    <select id="getResumeById" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+        SELECT * FROM `resume` WHERE id = #{id,jdbcType=INTEGER}
+    </select>
 </mapper>

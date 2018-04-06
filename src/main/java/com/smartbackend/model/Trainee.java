@@ -10,10 +10,12 @@ public class Trainee {
     private String school;
     private String telephone;
     private String mail;
+    private String education;
     private String major;
     private String minor;
     private Integer workDayPerWeek;
-    private Date timeStartWork;
+    private String timeStartWork;
+    private String graduateTime;
 
     public Integer getId() {
         return id;
@@ -71,6 +73,14 @@ public class Trainee {
         this.mail = mail;
     }
 
+    public String getEducation() {
+        return education;
+    }
+
+    public void setEducation(String education) {
+        this.education = education;
+    }
+
     public String getMajor() {
         return major;
     }
@@ -95,11 +105,19 @@ public class Trainee {
         this.workDayPerWeek = workDayPerWeek;
     }
 
-    public Date getTimeStartWork() {
+    public String getTimeStartWork() {
         return timeStartWork;
     }
 
-    public void setTimeStartWork(Date timeStartWork) {
+    public void setTimeStartWork(String timeStartWork) {
         this.timeStartWork = timeStartWork;
+    }
+
+    public String getGraduateTime() {
+        return graduateTime;
+    }
+
+    public void setGraduateTime(String graduateTime) {
+        this.graduateTime = graduateTime;
     }
 }

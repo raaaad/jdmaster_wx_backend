@@ -18,6 +18,7 @@
         <result column="endtime" property="endtime" jdbcType="VARCHAR" />
         <result column="description" property="description" jdbcType="VARCHAR" />
         <result column="recruiterWechat" property="recruiterWechat" jdbcType="VARCHAR" />
+        <result column="status" property="status" jdbcType="INTEGER"/>
         <result column="picture" property="picture" jdbcType="VARCHAR" />
     </resultMap>
     <select id="getJobById" resultMap="BaseResultMap" parameterType="java.lang.Integer">
@@ -25,17 +26,41 @@
         from job
         where id = #{id,jdbcType=INTEGER}
     </select>
-    <select id="getJobs" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+    <select id="getJobs" resultMap="BaseResultMap">
         select *
         from job
+    </select>
+    <select id="getMyJobs" resultMap="BaseResultMap" parameterType="java.lang.String">
+        select *
+        from job
+        WHERE recruiterWechat=#{wechat}
+    </select>
+    <select id="getMyJobByStatus" resultMap="BaseResultMap">
+        select *
+        from job
+        WHERE recruiterWechat=#{wechat} AND `status`= #{status,jdbcType=INTEGER}
     </select>
     <insert id="addJob">
         INSERT INTO job (company,position,workdayperweek,minSalary,maxSalary,address,education,major,
                          recruitnumber,monthforwork,correction,endtime,hrposition,description,recruiterWechat,
-                         picture,gmt_created,gmt_modified)
+                         picture,`status`,gmt_created,gmt_modified)
         VALUES (#{company},#{position},${workDayPerWeek},${minSalary},${maxSalary},#{address},#{education},#{major},
                            ${recruitNumber},${monthForWork},${correction},#{endTime},#{hrPosition},#{description},#{recruiterWechat},
-                           #{picture},NOW(),NOW())
+                           #{picture},1,NOW(),NOW())
     </insert>
-
+    <update id="changeJobStatus">
+        UPDATE job SET `status`= #{status,jdbcType=INTEGER} WHERE id = #{id,jdbcType=INTEGER}
+    </update>
+    <select id="getJobsViewd" resultMap="BaseResultMap">
+        SELECT * FROM job WHERE id in (
+            SELECT jobid FROM hunting WHERE traineewechat = #{wechat} AND `view`= 1)
+    </select>
+    <select id="getJobsFollowed" resultMap="BaseResultMap">
+        SELECT * FROM job WHERE id in (
+        SELECT jobid FROM hunting WHERE traineewechat = #{wechat} AND follow= 1)
+    </select>
+    <select id="getJobsDeliveried" resultMap="BaseResultMap">
+        SELECT * FROM job WHERE id in (
+        SELECT jobid FROM hunting WHERE traineewechat = #{wechat} AND delivery= 1)
+    </select>
 </mapper>

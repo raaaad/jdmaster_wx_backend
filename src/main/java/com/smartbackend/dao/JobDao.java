@@ -17,4 +17,16 @@ public interface JobDao {
     Job getJobById(@Param("id")Integer id);
 
     List<Job> getJobs();
+
+    List<Job> getMyJobs(@Param("wechat")String wechat);
+
+    List<Job> getMyJobByStatus(@Param("wechat")String wechat,@Param("status")Integer status);
+
+    void changeJobStatus(@Param("id")Integer id,@Param("status")Integer status);
+
+    List<Job> getJobsViewd(@Param("wechat")String wechat);
+
+    List<Job> getJobsFollowed(@Param("wechat")String wechat);
+
+    List<Job> getJobsDeliveried(@Param("wechat")String wechat);
 }

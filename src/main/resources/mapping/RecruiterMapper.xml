@@ -17,5 +17,8 @@
         INSERT INTO recruiter (company,telephone,email,wechat,gmt_created,gmt_modified)
                 VALUES (#{company},#{telephone},#{email},#{wechat},NOW(),NOW())
     </insert>
-
+    <select id="getRecruiters" resultMap="BaseResultMap">
+        select *
+        from recruiter
+    </select>
 </mapper>

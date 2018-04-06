@@ -13,6 +13,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.List;
 
 @Controller
 @RequestMapping("/recruiter")
@@ -64,7 +65,7 @@ public class RecruiterController {
         }
     }
 
-    @RequestMapping("getRecruiterInfo")
+    @RequestMapping("getInfo")
     @ResponseBody
     public Recruiter getRecruiterInfo(HttpServletRequest request, HttpServletResponse response) throws ServletException,IOException{
         response.setContentType("text/html;charset=utf-8");
@@ -77,4 +78,15 @@ public class RecruiterController {
         return recruiter;
     }
 
+    @RequestMapping("getRecruiters")
+    @ResponseBody
+    public List<Recruiter> getRecruiters(HttpServletRequest request,HttpServletResponse response)throws ServletException,IOException{
+        response.setContentType("text/html;charset=utf-8");
+        /* 设置响应头允许ajax跨域访问 */
+        response.setHeader("Access-Control-Allow-Origin", "*");
+        /* 星号表示所有的异域请求都可以接受， */
+        response.setHeader("Access-Control-Allow-Methods", "GET,POST");
+        List<Recruiter> recruiters = this.recruiterService.getRecruiters();
+        return recruiters;
+    }
 }

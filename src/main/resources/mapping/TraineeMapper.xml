@@ -8,22 +8,26 @@
         <result column="school" property="school" jdbcType="VARCHAR"/>
         <result column="telephone" property="telephone" jdbcType="VARCHAR"/>
         <result column="email" property="mail" jdbcType="VARCHAR"/>
+        <result column="education" property="education" jdbcType="VARCHAR"/>
         <result column="major" property="major" jdbcType="VARCHAR" />
         <result column="minor" property="minor" jdbcType="VARCHAR"/>
         <result column="workdayperweek" property="workDayPerWeek" jdbcType="INTEGER"/>
+        <result column="startwork" property="timeStartWork" jdbcType="VARCHAR"/>
+        <result column="wechat" property="wechat" jdbcType="VARCHAR"/>
+        <result column="graduatetime" property="graduateTime" jdbcType="VARCHAR"/>
     </resultMap>
     <select id="getAllTrainees" resultMap="BaseResultMap">
-        select name,gender,school,telephone,email,major,minor,workdayperweek
+        select *
         from trainee
     </select>
     <select id="getTraineeById" resultMap="BaseResultMap" parameterType="java.lang.Integer">
-        select name,gender,school,telephone,email,major,minor,workdayperweek
+        select *
         from trainee
         where id = #{id,jdbcType=INTEGER}
     </select>
     <insert id="addTrainee">
-        INSERT INTO trainee(name,gender,school,telephone,major,minor,wechat,workdayperweek,startwork,email)
-                VALUES (#{name},#{gender},#{school},#{telephone},#{major},#{minor},#{wechat},${workdayperweek},#{startwork},#{email})
+        INSERT INTO trainee(name,gender,school,telephone,major,minor,wechat,workdayperweek,startwork,email,education,graduatetime)
+                VALUES (#{name},#{gender},#{school},#{telephone},#{major},#{minor},#{wechat},${workdayperweek},#{startwork},#{email},#{education},#{graduateTime})
     </insert>
     <select id="getTraineeByWechat" resultMap="BaseResultMap" parameterType="java.lang.String">
         SELECT * FROM trainee WHERE wechat = #{wechat}

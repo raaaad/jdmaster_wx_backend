@@ -6,6 +6,7 @@ import com.smartbackend.service.IRecruiterService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 @Service("recruiterService")
 public class RecruiterService implements IRecruiterService {
@@ -20,5 +21,10 @@ public class RecruiterService implements IRecruiterService {
     @Override
     public Recruiter getRecruiterByWechat(String wechat){
         return recruiterDao.getRecruiterByWechat(wechat);
+    }
+
+    @Override
+    public List<Recruiter> getRecruiters(){
+        return this.recruiterDao.getRecruiters();
     }
 }
