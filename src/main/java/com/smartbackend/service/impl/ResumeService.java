@@ -22,4 +22,24 @@ public class ResumeService implements IResumeService {
     public Resume getResumeById(Integer id){
         return this.resumeDao.getResumeById(id);
     }
+
+    @Override
+    public void deleteCurResume(String wechat){
+        this.resumeDao.deleteCurResume(wechat);
+    }
+
+    @Override
+    public void addResume(String wechat,String url,Integer current){
+        this.resumeDao.addResume(wechat,url,current);
+    }
+
+    @Override
+    public Integer getCurResume(String wechat){
+       return this.resumeDao.getCurResume(wechat);
+    }
+
+    @Override
+    public Integer getResumeIdByUrl(String url){
+       return  this.resumeDao.getResumeIdByUrl(url);
+    }
 }

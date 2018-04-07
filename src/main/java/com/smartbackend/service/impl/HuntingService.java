@@ -22,4 +22,13 @@ public class HuntingService implements IHuntingService{
         return 0;
     }
 
+    @Override
+    public void changeFollow(String wechat,Integer jobId,Integer status){
+        this.huntingDao.changeFollow(wechat,jobId,status);
+    }
+
+    @Override
+    public void sendResume(String wechat,Integer jobId,Integer resumeId){
+        this.huntingDao.sendResume(wechat,jobId,resumeId);
+    }
 }

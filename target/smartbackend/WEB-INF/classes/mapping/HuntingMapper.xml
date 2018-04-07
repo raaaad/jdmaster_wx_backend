@@ -19,4 +19,12 @@
         INSERT INTO hunting(traineewechat,jobid,`view`,follow,delivery)
                 VALUES (#{wechat},#{jobId,jdbcType=INTEGER},1,0,0)
     </insert>
+    <update id="changeFollow">
+        UPDATE hunting SET follow = #{status,jdbcType=INTEGER}
+              WHERE traineewechat = #{wechat} AND jobid = #{jobId,jdbcType=INTEGER}
+    </update>
+    <update id="sendResume">
+        UPDATE hunting SET delivery = 1,resumeid = #{resumeId,jdbcType=INTEGER}
+             WHERE traineewechat = #{wechat} AND jobid = #{jobId,jdbcType=INTEGER}
+    </update>
 </mapper>

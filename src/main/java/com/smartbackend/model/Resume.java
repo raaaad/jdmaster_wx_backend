@@ -4,6 +4,7 @@ public class Resume {
     private Integer id;
     private String traineewechat;
     private String url;
+    private Integer current;
 
     public Integer getId() {
         return id;
@@ -27,5 +28,13 @@ public class Resume {
 
     public void setUrl(String url) {
         this.url = url;
+    }
+
+    public Integer getCurrent() {
+        return current;
+    }
+
+    public void setCurrent(Integer current) {
+        this.current = current;
     }
 }

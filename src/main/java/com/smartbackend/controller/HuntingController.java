@@ -1,7 +1,8 @@
 package com.smartbackend.controller;
 
-import com.smartbackend.model.Job;
 import com.smartbackend.service.IHuntingService;
+import com.smartbackend.service.IResumeService;
+import com.smartbackend.utils.ObjectUtil;
 import com.smartbackend.utils.Resp;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,6 +19,8 @@ import java.io.IOException;
 public class HuntingController {
     @Resource
     private IHuntingService huntingService;
+    @Resource
+    private IResumeService resumeService;
 
     @RequestMapping("viewJob")
     @ResponseBody
@@ -48,9 +51,46 @@ public class HuntingController {
         response.setHeader("Access-Control-Allow-Methods", "GET,POST");
         String wechat = request.getParameter("wechat");
         Integer jobId = Integer.parseInt(request.getParameter("jobId"));
-        //判断用户是否已关注该JD
-        //添加关注
-        Resp resp = new Resp(true,"已关注");
+        Integer status = Integer.parseInt(request.getParameter("status"));
+        Resp resp;
+        this.huntingService.changeFollow(wechat,jobId,status);
+        if(status==1){
+            resp = new Resp(true,"已关注");
+        }else{
+            resp = new Resp(true,"已取消关注");
+        }
+        return resp;
+    }
+
+    @RequestMapping("sendResume")
+    @ResponseBody
+    public Resp sendResume(HttpServletRequest request,HttpServletResponse response)throws ServletException,IOException{
+        response.setContentType("text/html;charset=utf-8");
+        /* 设置响应头允许ajax跨域访问 */
+        response.setHeader("Access-Control-Allow-Origin", "*");
+        /* 星号表示所有的异域请求都可以接受， */
+        response.setHeader("Access-Control-Allow-Methods", "GET,POST");
+        String wechat = request.getParameter("wechat");
+        Integer jobId = Integer.parseInt(request.getParameter("jobId"));
+        Integer type = Integer.parseInt(request.getParameter("type"));
+        Integer resumeId;
+        Resp resp;
+        //用户上传默认简历
+        if(type==1){
+            if(ObjectUtil.isNullOrEmpty(this.resumeService.getCurResume(wechat))){
+                resp = new Resp(false,"您暂未上传默认简历!");
+                return resp;
+            }
+            resumeId = this.resumeService.getCurResume(wechat);
+        }else{
+            //生成url
+            //!!!!!!!!
+            String url = "http://test?test1";
+            this.resumeService.addResume(wechat,url,0);
+            resumeId = this.resumeService.getResumeIdByUrl(url);
+        }
+        this.huntingService.sendResume(wechat,jobId,resumeId);
+        resp = new Resp(true,"投递成功");
         return resp;
     }
 }

@@ -5,6 +5,7 @@
         <id column="id" property="id" jdbcType="INTEGER" />
         <result column="traineewechat" property="traineewechat" jdbcType="VARCHAR" />
         <result column="url" property="url" jdbcType="VARCHAR" />
+        <result column="current" property="current" jdbcType="INTEGER"/>
     </resultMap>
     <select id="getResumes" resultMap="BaseResultMap" parameterType="java.lang.Integer">
         SELECT * FROM `resume` WHERE id in
@@ -12,5 +13,18 @@
     </select>
     <select id="getResumeById" resultMap="BaseResultMap" parameterType="java.lang.Integer">
         SELECT * FROM `resume` WHERE id = #{id,jdbcType=INTEGER}
+    </select>
+    <update id="deleteCurResume">
+        UPDATE `resume` SET `current` = 0 WHERE `current`=1 AND traineewechat = #{wechat}
+    </update>
+    <insert id="addResume">
+        INSERT INTO `resume`(traineewechat,url,`current`)
+                VALUES (#{wechat},#{url},#{current,jdbcType=INTEGER})
+    </insert>
+    <select id="getCurResume" parameterType="java.lang.String" resultType="java.lang.Integer">
+        SELECT id FROM `resume` WHERE traineewechat = #{wechat} AND `current` = 1
+    </select>
+    <select id="getResumeIdByUrl" resultType="java.lang.Integer">
+        SELECT id FROM `resume` WHERE url = #{url}
     </select>
 </mapper>
