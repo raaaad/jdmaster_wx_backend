@@ -8,6 +8,7 @@ public class Hunting {
     private Integer follow;
     private Integer delivery;
     private Integer resumeid;
+    private Integer feedback;
 
     public Integer getId() {
         return id;
@@ -63,5 +64,13 @@ public class Hunting {
 
     public void setResumeid(Integer resumeid) {
         this.resumeid = resumeid;
+    }
+
+    public Integer getFeedback() {
+        return feedback;
+    }
+
+    public void setFeedback(Integer feedback) {
+        this.feedback = feedback;
     }
 }

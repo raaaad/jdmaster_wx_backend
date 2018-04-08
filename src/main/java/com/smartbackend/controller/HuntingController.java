@@ -1,5 +1,6 @@
 package com.smartbackend.controller;
 
+import com.smartbackend.model.Hunting;
 import com.smartbackend.service.IHuntingService;
 import com.smartbackend.service.IResumeService;
 import com.smartbackend.utils.ObjectUtil;
@@ -62,6 +63,19 @@ public class HuntingController {
         return resp;
     }
 
+    @RequestMapping("getHunting")
+    @ResponseBody
+    public Hunting getHunting(HttpServletRequest request,HttpServletResponse response)throws ServletException,IOException{
+        response.setContentType("text/html;charset=utf-8");
+        /* 设置响应头允许ajax跨域访问 */
+        response.setHeader("Access-Control-Allow-Origin", "*");
+        /* 星号表示所有的异域请求都可以接受， */
+        response.setHeader("Access-Control-Allow-Methods", "GET,POST");
+        String wechat = request.getParameter("wechat");
+        Integer jobId = Integer.parseInt(request.getParameter("jobId"));
+        return this.huntingService.getHunting(wechat,jobId);
+    }
+
     @RequestMapping("sendResume")
     @ResponseBody
     public Resp sendResume(HttpServletRequest request,HttpServletResponse response)throws ServletException,IOException{
@@ -91,6 +105,22 @@ public class HuntingController {
         }
         this.huntingService.sendResume(wechat,jobId,resumeId);
         resp = new Resp(true,"投递成功");
+        return resp;
+    }
+
+    @RequestMapping("addFeedback")
+    @ResponseBody
+    public Resp addFeedback(HttpServletRequest request, HttpServletResponse response) throws ServletException,IOException {
+        response.setContentType("text/html;charset=utf-8");
+        /* 设置响应头允许ajax跨域访问 */
+        response.setHeader("Access-Control-Allow-Origin", "*");
+        /* 星号表示所有的异域请求都可以接受， */
+        response.setHeader("Access-Control-Allow-Methods", "GET,POST");
+        String wechat = request.getParameter("wechat");
+        Integer jobId = Integer.parseInt(request.getParameter("jobId"));
+        Integer feedback = Integer.parseInt(request.getParameter("feedback"));
+        this.huntingService.addFeedback(wechat,jobId,feedback);
+        Resp resp = new Resp(true,"反馈成功！");
         return resp;
     }
 }

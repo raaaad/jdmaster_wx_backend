@@ -43,10 +43,12 @@ public class TraineeController {
         String minor = request.getParameter("minor");
         String education = request.getParameter("education");
         String wechat = request.getParameter("wechat");
+        Integer workdayperweek;
         if(!request.getParameter("workdayperweek").isEmpty()){
-            Integer workdayperweek = Integer.parseInt(request.getParameter("workdayperweek"));
+            workdayperweek = Integer.parseInt(request.getParameter("workdayperweek"));
+        }else{
+            workdayperweek = 0;
         }
-        Integer workdayperweek = 0;
         String startwork = request.getParameter("startwork");
         String email = request.getParameter("email");
         String graduateTime = request.getParameter("graduateTime");

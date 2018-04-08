@@ -12,4 +12,6 @@ public interface HuntingDao {
 
     void sendResume(@Param("wechat")String wechat,@Param("jobId")Integer jobId,@Param("resumeId")Integer resumeId);
 
+    void addFeedback(@Param("wechat")String wechat,@Param("jobId")Integer jobId,@Param("feedback")Integer feedback);
+
 }

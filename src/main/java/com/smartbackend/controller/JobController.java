@@ -31,8 +31,7 @@ public class JobController {
         /* 星号表示所有的异域请求都可以接受， */
         response.setHeader("Access-Control-Allow-Methods", "GET,POST");
         Integer id = Integer.parseInt(request.getParameter("id"));
-        Job job = this.jobService.getJobById(id);
-        return job;
+        return this.jobService.getJobById(id);
     }
 
     //学生获取所有工作列表

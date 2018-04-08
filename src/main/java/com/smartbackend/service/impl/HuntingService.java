@@ -31,4 +31,14 @@ public class HuntingService implements IHuntingService{
     public void sendResume(String wechat,Integer jobId,Integer resumeId){
         this.huntingDao.sendResume(wechat,jobId,resumeId);
     }
+
+    @Override
+    public void addFeedback(String wechat,Integer jobId,Integer feedback){
+        this.huntingDao.addFeedback(wechat,jobId,feedback);
+    }
+
+    @Override
+    public Hunting getHunting(String wechat,Integer jobId){
+       return this.huntingDao.getHunting(wechat,jobId);
+    }
 }

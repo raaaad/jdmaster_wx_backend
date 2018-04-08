@@ -9,6 +9,7 @@
         <result column="follow" property="follow" jdbcType="INTEGER" />
         <result column="delivery" property="delivery" jdbcType="INTEGER" />
         <result column="resumeid" property="resumeid" jdbcType="INTEGER" />
+        <result column="feedback" property="feedback" jdbcType="INTEGER"/>
     </resultMap>
     <select id="getHunting" resultMap="BaseResultMap">
         SELECT *
@@ -26,5 +27,9 @@
     <update id="sendResume">
         UPDATE hunting SET delivery = 1,resumeid = #{resumeId,jdbcType=INTEGER}
              WHERE traineewechat = #{wechat} AND jobid = #{jobId,jdbcType=INTEGER}
+    </update>
+    <update id="addFeedback">
+        UPDATE hunting SET feedback = #{feedback,jdbcType=INTEGER}
+            WHERE traineewechat = #{wechat} AND jobid = #{jobId,jdbcType=INTEGER} and delivery = 1
     </update>
 </mapper>
