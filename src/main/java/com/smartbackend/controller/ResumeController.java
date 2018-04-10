@@ -83,25 +83,6 @@ public class ResumeController {
         return resp;
     }
 
-    //添加简历
-    @RequestMapping("addResume")
-    @ResponseBody
-    public Resp addResume(HttpServletRequest request, HttpServletResponse response) throws ServletException,IOException{
-        response.setContentType("text/html;charset=utf-8");
-        /* 设置响应头允许ajax跨域访问 */
-        response.setHeader("Access-Control-Allow-Origin", "*");
-        /* 星号表示所有的异域请求都可以接受， */
-        response.setHeader("Access-Control-Allow-Methods", "GET,POST");
-        String wechat = request.getParameter("wechat");
-        Integer current = Integer.parseInt(request.getParameter("current"));
-        String url = "http://test";
-        if(current == 1){
-            this.resumeService.deleteCurResume(wechat);
-        }
-        this.resumeService.addResume(wechat,url,current);
-        Resp resp = new Resp(true,"上传简历成功！");
-        return resp;
-    }
 
     @RequestMapping("/uploadImg")
     @ResponseBody
@@ -126,6 +107,7 @@ public class ResumeController {
     }
 
 
+    //上传简历
     @RequestMapping(value="/upload",method= RequestMethod.POST)
     @ResponseBody
     public String upload(MultipartFile file, HttpServletRequest request) throws IOException{
