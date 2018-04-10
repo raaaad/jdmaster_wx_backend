@@ -15,6 +15,8 @@
         <result column="startwork" property="timeStartWork" jdbcType="VARCHAR"/>
         <result column="wechat" property="wechat" jdbcType="VARCHAR"/>
         <result column="graduatetime" property="graduateTime" jdbcType="VARCHAR"/>
+        <result column="headpic" property="headpic" jdbcType="VARCHAR"/>
+        <result column="nickname" property="nickname" jdbcType="VARCHAR"/>
     </resultMap>
     <select id="getAllTrainees" resultMap="BaseResultMap">
         select *
@@ -26,10 +28,16 @@
         where id = #{id,jdbcType=INTEGER}
     </select>
     <insert id="addTrainee">
-        INSERT INTO trainee(name,gender,school,telephone,major,minor,wechat,workdayperweek,startwork,email,education,graduatetime)
-                VALUES (#{name},#{gender},#{school},#{telephone},#{major},#{minor},#{wechat},${workdayperweek},#{startwork},#{email},#{education},#{graduateTime})
+        INSERT INTO trainee(name,gender,school,telephone,major,minor,wechat,workdayperweek,startwork,email,education,graduatetime,headpic,nickname)
+                VALUES (#{name},#{gender},#{school},#{telephone},#{major},#{minor},#{wechat},${workdayperweek},#{startwork},#{email},#{education},#{graduateTime},#{headpic},#{nickname})
     </insert>
     <select id="getTraineeByWechat" resultMap="BaseResultMap" parameterType="java.lang.String">
         SELECT * FROM trainee WHERE wechat = #{wechat}
+    </select>
+    <select id="getViewList" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+        SELECT * FROM trainee WHERE wechat IN (SELECT traineewechat FROM hunting WHERE jobid = #{jobId,jdbcType=INTEGER}  AND `view`=1)
+    </select>
+    <select id="getFollowList" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+        SELECT * FROM trainee WHERE wechat IN (SELECT traineewechat FROM hunting WHERE jobid = #{jobId,jdbcType=INTEGER}  AND `follow`=1)
     </select>
 </mapper>

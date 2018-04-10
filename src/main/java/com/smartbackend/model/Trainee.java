@@ -16,6 +16,8 @@ public class Trainee {
     private Integer workDayPerWeek;
     private String timeStartWork;
     private String graduateTime;
+    private String headpic;
+    private String nickname;
 
     public Integer getId() {
         return id;
@@ -119,5 +121,21 @@ public class Trainee {
 
     public void setGraduateTime(String graduateTime) {
         this.graduateTime = graduateTime;
+    }
+
+    public String getHeadpic() {
+        return headpic;
+    }
+
+    public void setHeadpic(String headpic) {
+        this.headpic = headpic;
+    }
+
+    public String getNickname() {
+        return nickname;
+    }
+
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
     }
 }

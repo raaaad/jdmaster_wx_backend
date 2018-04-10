@@ -11,6 +11,9 @@ public interface TraineeDao {
     void addTrainee(@Param("name")String name,@Param("gender")String gender,@Param("school")String school,
                     @Param("telephone")String telephone,@Param("major")String major,@Param("minor")String minor,
                     @Param("wechat")String wechat,@Param("workdayperweek")Integer workdayperweek,
-                    @Param("startwork")String startwork,@Param("email")String email,@Param("education")String education,@Param("graduateTime")String graduateTime);
+                    @Param("startwork")String startwork,@Param("email")String email,@Param("education")String education,
+                    @Param("graduateTime")String graduateTime,@Param("headpic")String headpic,@Param("nickname")String nickname);
     Trainee getTraineeByWechat(@Param("wechat")String wechat);
+    List<Trainee> getViewList(@Param("jobId")Integer jobId);
+    List<Trainee> getFollowList(@Param("jobId")Integer jobId);
 }

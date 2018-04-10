@@ -8,7 +8,8 @@ import javax.annotation.PreDestroy;
 import java.util.List;
 
 public interface RecruiterDao {
-    void insertRecruiter(@Param("company")String company, @Param("telephone")String telephone,@Param("email")String email,@Param("wechat")String wechat);
+    void insertRecruiter(@Param("company")String company, @Param("telephone")String telephone,@Param("email")String email,
+                         @Param("wechat")String wechat,@Param("headpic")String headpic,@Param("nickname")String nickname);
 
     Recruiter getRecruiterByWechat(@Param("wechat")String wechat);
 

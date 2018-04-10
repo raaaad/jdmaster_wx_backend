@@ -35,7 +35,9 @@ public class RecruiterController {
         String telephone = request.getParameter("telephone");
         String email = request.getParameter("email");
         String wechat = request.getParameter("wechat");
-        this.recruiterService.insertRecruiter(company,telephone,email,wechat);
+        String headpic = request.getParameter("headpic");
+        String nickname = request.getParameter("nickname");
+        this.recruiterService.insertRecruiter(company,telephone,email,wechat,headpic,nickname);
 
         //返回值给微信小程序
         //Writer out = response.getWriter();

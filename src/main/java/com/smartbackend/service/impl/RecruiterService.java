@@ -14,8 +14,8 @@ public class RecruiterService implements IRecruiterService {
     private RecruiterDao recruiterDao;
 
     @Override
-    public void insertRecruiter(String company, String telephone, String email, String wechat) {
-        recruiterDao.insertRecruiter(company,telephone,email,wechat);
+    public void insertRecruiter(String company, String telephone, String email, String wechat,String headpic,String nickname) {
+        recruiterDao.insertRecruiter(company,telephone,email,wechat,headpic,nickname);
     }
 
     @Override

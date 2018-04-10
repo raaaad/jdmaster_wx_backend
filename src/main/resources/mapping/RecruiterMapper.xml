@@ -7,6 +7,8 @@
         <result column="email" property="email" jdbcType="VARCHAR" />
         <result column="telephone" property="telephone" jdbcType="VARCHAR" />
         <result column="wechat" property="wechat" jdbcType="VARCHAR" />
+        <result column="headpic" property="headpic" jdbcType="VARCHAR"/>
+        <result column="nickname" property="nickname" jdbcType="VARCHAR"/>
     </resultMap>
     <select id="getRecruiterByWechat" parameterType="java.lang.String" resultMap="BaseResultMap">
         select *
@@ -14,8 +16,8 @@
         where wechat = #{wechat}
     </select>
     <insert id="insertRecruiter">
-        INSERT INTO recruiter (company,telephone,email,wechat,gmt_created,gmt_modified)
-                VALUES (#{company},#{telephone},#{email},#{wechat},NOW(),NOW())
+        INSERT INTO recruiter (company,telephone,email,wechat,gmt_created,gmt_modified,headpic,nickname)
+                VALUES (#{company},#{telephone},#{email},#{wechat},NOW(),NOW(),#{headpic},#{nickname})
     </insert>
     <select id="getRecruiters" resultMap="BaseResultMap">
         select *

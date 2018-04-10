@@ -25,13 +25,23 @@ public class TraineeService implements ITraineeService{
 
     @Override
     public void addTrainee(String name,String gender,String school,String telephone,String major,String minor,
-                           String wechat,Integer workdayperweek,String startwork,String email,String education,String graduateTime){
-        traineeDao.addTrainee(name,gender,school,telephone,major,minor,wechat,workdayperweek,startwork,email,education,graduateTime);
+                           String wechat,Integer workdayperweek,String startwork,String email,String education,String graduateTime,String headpic,String nickname){
+        traineeDao.addTrainee(name,gender,school,telephone,major,minor,wechat,workdayperweek,startwork,email,education,graduateTime,headpic,nickname);
     }
 
     @Override
     public Trainee getTraineeByWechat(String wechat){
         return traineeDao.getTraineeByWechat(wechat);
+    }
+
+    @Override
+    public List<Trainee> getViewList(Integer jobId){
+        return this.traineeDao.getViewList(jobId);
+    }
+
+    @Override
+    public List<Trainee> getFollowList(Integer jobId){
+        return this.traineeDao.getFollowList(jobId);
     }
 
 }

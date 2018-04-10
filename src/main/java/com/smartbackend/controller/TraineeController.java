@@ -52,7 +52,9 @@ public class TraineeController {
         String startwork = request.getParameter("startwork");
         String email = request.getParameter("email");
         String graduateTime = request.getParameter("graduateTime");
-        this.traineeService.addTrainee(name,gender,school,telephone,major,minor,wechat,workdayperweek,startwork,email,education,graduateTime);
+        String headpic = request.getParameter("headpic");
+        String nickname =request.getParameter("nickname");
+        this.traineeService.addTrainee(name,gender,school,telephone,major,minor,wechat,workdayperweek,startwork,email,education,graduateTime,headpic,nickname);
         //返回值给微信小程序
         //Writer out = response.getWriter();
         //out.write("恭喜您，已成功注册！");
@@ -90,8 +92,7 @@ public class TraineeController {
         /* 星号表示所有的异域请求都可以接受， */
         response.setHeader("Access-Control-Allow-Methods", "GET,POST");
         String wechat = request.getParameter("wechat");
-        Trainee trainee = this.traineeService.getTraineeByWechat(wechat);
-        return trainee;
+        return this.traineeService.getTraineeByWechat(wechat);
     }
 
     @RequestMapping("getAllTrainees")
@@ -104,6 +105,30 @@ public class TraineeController {
         response.setHeader("Access-Control-Allow-Methods", "GET,POST");
         List<Trainee> trainees = this.traineeService.getAllTrainees();
         return trainees;
+    }
+
+    @RequestMapping("getViewList")
+    @ResponseBody
+    public List<Trainee> getViewList(HttpServletRequest request,HttpServletResponse response) throws  ServletException,IOException{
+        response.setContentType("text/html;charset=utf-8");
+        /* 设置响应头允许ajax跨域访问 */
+        response.setHeader("Access-Control-Allow-Origin", "*");
+        /* 星号表示所有的异域请求都可以接受， */
+        response.setHeader("Access-Control-Allow-Methods", "GET,POST");
+        Integer jobId = Integer.parseInt(request.getParameter("jobId"));
+        return this.traineeService.getViewList(jobId);
+    }
+
+    @RequestMapping("getFollowList")
+    @ResponseBody
+    public List<Trainee> getFollowList(HttpServletRequest request,HttpServletResponse response) throws  ServletException,IOException{
+        response.setContentType("text/html;charset=utf-8");
+        /* 设置响应头允许ajax跨域访问 */
+        response.setHeader("Access-Control-Allow-Origin", "*");
+        /* 星号表示所有的异域请求都可以接受， */
+        response.setHeader("Access-Control-Allow-Methods", "GET,POST");
+        Integer jobId = Integer.parseInt(request.getParameter("jobId"));
+        return this.traineeService.getFollowList(jobId);
     }
 
     @RequestMapping("getTraineeById")

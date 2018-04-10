@@ -6,6 +6,8 @@ public class Recruiter {
     private String telephone;
     private String email;
     private String wechat;
+    private String headpic;
+    private String nickname;
 
     public Integer getId() {
         return id;
@@ -45,5 +47,21 @@ public class Recruiter {
 
     public void setWechat(String wechat) {
         this.wechat = wechat;
+    }
+
+    public String getHeadpic() {
+        return headpic;
+    }
+
+    public void setHeadpic(String headpic) {
+        this.headpic = headpic;
+    }
+
+    public String getNickname() {
+        return nickname;
+    }
+
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
     }
 }
