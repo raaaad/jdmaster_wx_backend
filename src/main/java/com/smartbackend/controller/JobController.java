@@ -43,8 +43,8 @@ public class JobController {
         response.setHeader("Access-Control-Allow-Origin", "*");
         /* 星号表示所有的异域请求都可以接受， */
         response.setHeader("Access-Control-Allow-Methods", "GET,POST");
-        List<Job> jobs = this.jobService.getJobs();
-        return jobs;
+        return this.jobService.getJobs();
+
     }
 
     //学生根据自己的浏览、关注或投递状态获取工作列表
