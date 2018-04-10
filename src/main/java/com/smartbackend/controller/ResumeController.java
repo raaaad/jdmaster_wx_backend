@@ -3,8 +3,10 @@ package com.smartbackend.controller;
 import com.alibaba.fastjson.JSON;
 import com.smartbackend.model.Resume;
 import com.smartbackend.service.IResumeService;
+import com.smartbackend.utils.Constants;
 import com.smartbackend.utils.ObjectUtil;
 import com.smartbackend.utils.Resp;
+import com.sun.corba.se.impl.orbutil.closure.Constant;
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.FileUploadException;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
@@ -132,6 +134,10 @@ public class ResumeController {
         if(!dir.exists()){
             dir.mkdirs();
         }
+        String url = Constants.PIC_PATH +fileName;
+        String wechat = request.getParameter("wechat");
+        Integer current = Integer.parseInt(request.getParameter("current"));
+        this.resumeService.addResume(wechat,url,current);
         //MultipartFile自带的解析方法
         file.transferTo(dir);
         System.out.println("path>>"+ path);
