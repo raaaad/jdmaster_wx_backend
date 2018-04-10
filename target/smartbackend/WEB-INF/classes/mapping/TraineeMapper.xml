@@ -40,4 +40,7 @@
     <select id="getFollowList" resultMap="BaseResultMap" parameterType="java.lang.Integer">
         SELECT * FROM trainee WHERE wechat IN (SELECT traineewechat FROM hunting WHERE jobid = #{jobId,jdbcType=INTEGER}  AND `follow`=1)
     </select>
+    <update id="updatePic">
+        UPDATE trainee SET headpic = #{headpic},nickname = #{nickname} WHERE wechat = #{wechat}
+    </update>
 </mapper>

@@ -44,4 +44,8 @@ public class TraineeService implements ITraineeService{
         return this.traineeDao.getFollowList(jobId);
     }
 
+    @Override
+    public void updatePic(String wechat,String headpic,String nickname){
+        this.traineeDao.updatePic(wechat,headpic,nickname);
+    }
 }

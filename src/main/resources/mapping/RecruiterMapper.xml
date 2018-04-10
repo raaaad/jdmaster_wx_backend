@@ -23,4 +23,7 @@
         select *
         from recruiter
     </select>
+    <update id="updatePic">
+        UPDATE recruiter SET headpic = #{headpic},nickname = #{nickname} WHERE wechat = #{wechat}
+    </update>
 </mapper>

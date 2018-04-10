@@ -76,7 +76,7 @@ public class ResumeController {
         Resp resp;
         Resume resume = this.resumeService.getCurResume(wechat);
         if(ObjectUtil.isNullOrEmpty(resume)){
-            resp = new Resp(true,"用户暂未上传默认简历！");
+            resp = new Resp(false,"用户暂未上传默认简历！");
         }else{
             resp = new Resp(true,resume.getUrl());
         }
@@ -138,6 +138,9 @@ public class ResumeController {
         String url = Constants.PIC_PATH +fileName;
         String wechat = request.getParameter("wechat");
         Integer current = Integer.parseInt(request.getParameter("current"));
+        if(current == 1){
+            this.resumeService.deleteCurResume(wechat);
+        }
         this.resumeService.addResume(wechat,url,current);
         //MultipartFile自带的解析方法
         file.transferTo(dir);

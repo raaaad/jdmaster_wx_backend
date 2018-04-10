@@ -14,4 +14,6 @@ public interface RecruiterDao {
     Recruiter getRecruiterByWechat(@Param("wechat")String wechat);
 
     List<Recruiter> getRecruiters();
+
+    void updatePic(@Param("wechat")String wechat,@Param("headpic")String headpic,@Param("nickname")String nickname);
 }

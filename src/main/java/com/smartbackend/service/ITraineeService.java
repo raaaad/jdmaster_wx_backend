@@ -12,4 +12,5 @@ public interface ITraineeService {
     public Trainee getTraineeByWechat(String wechat);
     public List<Trainee> getFollowList(Integer jobId);
     public List<Trainee> getViewList(Integer jobId);
+    public void updatePic(String wechat, String headpic,String nickname);
 }

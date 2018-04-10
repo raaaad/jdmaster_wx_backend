@@ -10,4 +10,6 @@ public interface IRecruiterService {
     public Recruiter getRecruiterByWechat(String wechat);
 
     public List<Recruiter> getRecruiters();
+
+    public void updatePic(String wechat, String headpic,String nickname);
 }

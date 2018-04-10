@@ -73,7 +73,10 @@ public class TraineeController {
         /* 星号表示所有的异域请求都可以接受， */
         response.setHeader("Access-Control-Allow-Methods", "GET,POST");
         String wechat = request.getParameter("wechat");
+        String headpic = request.getParameter("headpic");
+        String nickname = request.getParameter("nickname");
         Trainee trainee = this.traineeService.getTraineeByWechat(wechat);
+        this.traineeService.updatePic(wechat,headpic,nickname);
         if(ObjectUtil.isNullOrEmpty(trainee)){
             Resp resp = new Resp(false,"请注册！");
             return resp;

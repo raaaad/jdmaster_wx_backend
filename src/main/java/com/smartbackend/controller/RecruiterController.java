@@ -57,7 +57,10 @@ public class RecruiterController {
         /* 星号表示所有的异域请求都可以接受， */
         response.setHeader("Access-Control-Allow-Methods", "GET,POST");
         String wechat = request.getParameter("wechat");
+        String headpic = request.getParameter("headpic");
+        String nickname = request.getParameter("nickname");
         Recruiter recruiter = this.recruiterService.getRecruiterByWechat(wechat);
+        this.recruiterService.updatePic(wechat,headpic,nickname);
         if(ObjectUtil.isNullOrEmpty(recruiter)){
             Resp resp = new Resp(false,"请注册！");
             return resp;

@@ -27,4 +27,9 @@ public class RecruiterService implements IRecruiterService {
     public List<Recruiter> getRecruiters(){
         return this.recruiterDao.getRecruiters();
     }
+
+    @Override
+    public void updatePic(String wechat,String headpic,String nickname){
+        this.recruiterDao.updatePic(wechat,headpic,nickname);
+    }
 }
