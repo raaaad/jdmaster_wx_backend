@@ -21,8 +21,8 @@
         INSERT INTO `resume`(traineewechat,url,`current`)
                 VALUES (#{wechat},#{url},#{current,jdbcType=INTEGER})
     </insert>
-    <select id="getCurResume" parameterType="java.lang.String" resultType="java.lang.Integer">
-        SELECT id FROM `resume` WHERE traineewechat = #{wechat} AND `current` = 1
+    <select id="getCurResume" parameterType="java.lang.String" resultMap="BaseResultMap">
+        SELECT * FROM `resume` WHERE traineewechat = #{wechat} AND `current` = 1
     </select>
     <select id="getResumeIdByUrl" resultType="java.lang.Integer">
         SELECT id FROM `resume` WHERE url = #{url}

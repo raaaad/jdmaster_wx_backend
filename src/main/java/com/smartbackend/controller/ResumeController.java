@@ -74,10 +74,11 @@ public class ResumeController {
         response.setHeader("Access-Control-Allow-Methods", "GET,POST");
         String wechat = request.getParameter("wechat");
         Resp resp;
-        if(ObjectUtil.isNullOrEmpty(this.resumeService.getCurResume(wechat))){
-            resp = new Resp(true,"用户还未上传简历");
+        Resume resume = this.resumeService.getCurResume(wechat);
+        if(ObjectUtil.isNullOrEmpty(resume)){
+            resp = new Resp(true,"用户暂未上传默认简历！");
         }else{
-            resp = new Resp(true,"可以");
+            resp = new Resp(true,resume.getUrl());
         }
         return resp;
     }

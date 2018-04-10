@@ -13,7 +13,7 @@ public interface IResumeService {
 
     public void addResume(String wechat,String url,Integer current);
 
-    public Integer getCurResume(String wechat);
+    public Resume getCurResume(String wechat);
 
     public Integer getResumeIdByUrl(String url);
 }

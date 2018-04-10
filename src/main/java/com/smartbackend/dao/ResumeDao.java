@@ -14,7 +14,7 @@ public interface ResumeDao {
 
     void addResume(@Param("wechat")String wechat,@Param("url")String url,@Param("current")Integer current);
 
-    Integer getCurResume(@Param("wechat")String wechat);
+    Resume getCurResume(@Param("wechat")String wechat);
 
     Integer getResumeIdByUrl(@Param("url")String url);
 }

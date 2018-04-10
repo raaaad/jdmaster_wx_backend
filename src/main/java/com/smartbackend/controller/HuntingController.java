@@ -95,7 +95,7 @@ public class HuntingController {
                 resp = new Resp(false,"您暂未上传默认简历!");
                 return resp;
             }
-            resumeId = this.resumeService.getCurResume(wechat);
+            resumeId = this.resumeService.getCurResume(wechat).getId();
         }else{
             //生成url
             //!!!!!!!!

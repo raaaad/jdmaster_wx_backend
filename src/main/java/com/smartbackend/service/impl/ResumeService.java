@@ -34,7 +34,7 @@ public class ResumeService implements IResumeService {
     }
 
     @Override
-    public Integer getCurResume(String wechat){
+    public Resume getCurResume(String wechat){
        return this.resumeDao.getCurResume(wechat);
     }
 
