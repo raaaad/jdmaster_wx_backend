@@ -2,16 +2,20 @@ package com.smartbackend.controller;
 
 import com.smartbackend.model.Job;
 import com.smartbackend.service.IJobService;
+import com.smartbackend.utils.Constants;
 import com.smartbackend.utils.Resp;
 import jdk.nashorn.internal.scripts.JO;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.File;
 import java.io.IOException;
 import java.io.Writer;
 import java.util.List;
@@ -105,19 +109,31 @@ public class JobController {
         out.flush();
     }
 
-    @RequestMapping("addJob")
+
+    @RequestMapping(value="/addJob",method= RequestMethod.POST)
     @ResponseBody
-    public Resp addJob(HttpServletRequest request, HttpServletResponse response) throws ServletException,IOException {
-        response.setContentType("text/html;charset=utf-8");
-        /* 设置响应头允许ajax跨域访问 */
-        response.setHeader("Access-Control-Allow-Origin", "*");
-        /* 星号表示所有的异域请求都可以接受， */
-        response.setHeader("Access-Control-Allow-Methods", "GET,POST");
+    public Resp addJob(MultipartFile file,HttpServletRequest request, HttpServletResponse response) throws ServletException,IOException {
+        String path = request.getSession().getServletContext().getRealPath("images");
+        String fileName = file.getOriginalFilename();
+        File dir = new File(path,fileName);
+        if(!dir.exists()){
+            dir.mkdirs();
+        }
+        String url = Constants.PIC_PATH +fileName;
+
+        //MultipartFile自带的解析方法
+        file.transferTo(dir);
+        System.out.println("path>>"+ path);
 
         //获取微信小程序get的参数值并打印
         String company = request.getParameter("company");
         String position = request.getParameter("position");
-        Integer workDayPerWork =  Integer.parseInt(request.getParameter("workDayPerWeek"));
+        Integer workdayperweek;
+        if(!request.getParameter("workdayperweek").isEmpty()){
+            workdayperweek = Integer.parseInt(request.getParameter("workdayperweek"));
+        }else{
+            workdayperweek = 0;
+        }
         Integer minSalary = Integer.parseInt(request.getParameter("minSalary"));
         Integer maxSalary = Integer.parseInt(request.getParameter("maxSalary"));
         String address = request.getParameter("address");
@@ -130,10 +146,10 @@ public class JobController {
         String description  = request.getParameter("description");
         String hrPosition = request.getParameter("hrPosition");
         String recruiterWechat = request.getParameter("recruiterWechat");
-        String picture = request.getParameter("picture");
-        this.jobService.addJob(company,position,workDayPerWork,minSalary,maxSalary,address,education,major,recruitNumber,
-                monthForWork,correction,endTime,description,hrPosition,recruiterWechat,picture);
+        this.jobService.addJob(company,position,workdayperweek,minSalary,maxSalary,address,education,major,recruitNumber,
+                monthForWork,correction,endTime,description,hrPosition,recruiterWechat,url);
         Resp resp = new Resp(true,"发布成功！");
         return resp;
     }
+
 }
