@@ -4,6 +4,7 @@ import com.smartbackend.model.Hunting;
 import com.smartbackend.service.IHuntingService;
 import com.smartbackend.service.IResumeService;
 import com.smartbackend.utils.Constants;
+import com.smartbackend.utils.HuntingListIO;
 import com.smartbackend.utils.ObjectUtil;
 import com.smartbackend.utils.Resp;
 import org.springframework.stereotype.Controller;
@@ -18,6 +19,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 
 @Controller
 @RequestMapping("/hunting")
@@ -78,6 +80,18 @@ public class HuntingController {
         String wechat = request.getParameter("wechat");
         Integer jobId = Integer.parseInt(request.getParameter("jobId"));
         return this.huntingService.getHunting(wechat,jobId);
+    }
+
+    @RequestMapping("getAllResumes")
+    @ResponseBody
+    public List<HuntingListIO> getAllResume(HttpServletRequest request, HttpServletResponse response)throws ServletException,IOException{
+        response.setContentType("text/html;charset=utf-8");
+        /* 设置响应头允许ajax跨域访问 */
+        response.setHeader("Access-Control-Allow-Origin", "*");
+        /* 星号表示所有的异域请求都可以接受， */
+        response.setHeader("Access-Control-Allow-Methods", "GET,POST");
+        String wechat = request.getParameter("wechat");
+        return this.huntingService.getTraineeInfoByHRWeChat(wechat);
     }
 
     @RequestMapping(value="/sendResume",method= RequestMethod.POST)

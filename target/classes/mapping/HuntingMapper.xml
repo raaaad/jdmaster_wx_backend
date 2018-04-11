@@ -11,6 +11,18 @@
         <result column="resumeid" property="resumeid" jdbcType="INTEGER" />
         <result column="feedback" property="feedback" jdbcType="INTEGER"/>
     </resultMap>
+    <resultMap id="HuntingResultMap" type="com.smartbackend.utils.HuntingListIO">
+        <id column="jobid" property="jobid" jdbcType="INTEGER" />
+        <result column="cvid" property="cvid" jdbcType="INTEGER" />
+        <result column="name" property="name" jdbcType="VARCHAR" />
+        <result column="major" property="major" jdbcType="VARCHAR" />
+        <result column="headpic" property="headpic" jdbcType="VARCHAR" />
+    </resultMap>
+    <select id="getTraineeInfoByHRWeChat" resultMap="HuntingResultMap">
+      SELECT hunting.jobid as jobid,hunting.resumeid as cvid,trainee.`name`,trainee.major,trainee.headpic
+           FROM hunting LEFT JOIN trainee ON hunting.traineewechat = trainee.wechat WHERE hunting.delivery=1
+                 AND hunting.jobid IN (SELECT DISTINCT job.id FROM job WHERE job.recruiterWechat=#{wechat})
+    </select>
     <select id="getHunting" resultMap="BaseResultMap">
         SELECT *
         FROM hunting

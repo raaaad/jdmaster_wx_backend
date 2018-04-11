@@ -1,7 +1,10 @@
 package com.smartbackend.dao;
 
 import com.smartbackend.model.Hunting;
+import com.smartbackend.utils.HuntingListIO;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface HuntingDao {
     Hunting getHunting(@Param("wechat")String wechat,@Param("jobId")Integer jobId);
@@ -14,4 +17,5 @@ public interface HuntingDao {
 
     void addFeedback(@Param("wechat")String wechat,@Param("jobId")Integer jobId,@Param("feedback")Integer feedback);
 
+    List<HuntingListIO> getTraineeInfoByHRWeChat(@Param("wechat")String wechat);
 }

@@ -1,35 +1,22 @@
 package com.smartbackend.controller;
 
-import com.alibaba.fastjson.JSON;
 import com.smartbackend.model.Resume;
 import com.smartbackend.service.IResumeService;
 import com.smartbackend.utils.Constants;
 import com.smartbackend.utils.ObjectUtil;
 import com.smartbackend.utils.Resp;
-import com.sun.corba.se.impl.orbutil.closure.Constant;
-import org.apache.commons.fileupload.FileItem;
-import org.apache.commons.fileupload.FileUploadException;
-import org.apache.commons.fileupload.disk.DiskFileItemFactory;
-import org.apache.commons.fileupload.servlet.ServletFileUpload;
-import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.multipart.MultipartHttpServletRequest;
-import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.*;
-import java.net.URLEncoder;
-import java.util.HashMap;
 import java.util.List;
-import java.util.UUID;
-import java.util.logging.Logger;
 
 @Controller
 @RequestMapping("/resume")

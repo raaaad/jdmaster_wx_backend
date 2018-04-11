@@ -3,10 +3,12 @@ package com.smartbackend.service.impl;
 import com.smartbackend.dao.HuntingDao;
 import com.smartbackend.model.Hunting;
 import com.smartbackend.service.IHuntingService;
+import com.smartbackend.utils.HuntingListIO;
 import com.smartbackend.utils.ObjectUtil;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 @Service("huntingService")
 public class HuntingService implements IHuntingService{
@@ -40,5 +42,10 @@ public class HuntingService implements IHuntingService{
     @Override
     public Hunting getHunting(String wechat,Integer jobId){
        return this.huntingDao.getHunting(wechat,jobId);
+    }
+
+    @Override
+    public List<HuntingListIO> getTraineeInfoByHRWeChat(String wechat){
+        return this.huntingDao.getTraineeInfoByHRWeChat(wechat);
     }
 }

@@ -7,10 +7,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5d9fb6ec-f7dc-4095-a351-a27e39638726" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/smartbackend/utils/HuntingListIO.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/smartbackend/controller/RecruiterController.java" afterPath="$PROJECT_DIR$/src/main/java/com/smartbackend/controller/RecruiterController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/smartbackend/model/Job.java" afterPath="$PROJECT_DIR$/src/main/java/com/smartbackend/model/Job.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/mapping/JobMapper.xml" afterPath="$PROJECT_DIR$/src/main/resources/mapping/JobMapper.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/smartbackend/controller/HuntingController.java" afterPath="$PROJECT_DIR$/src/main/java/com/smartbackend/controller/HuntingController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/smartbackend/controller/ResumeController.java" afterPath="$PROJECT_DIR$/src/main/java/com/smartbackend/controller/ResumeController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/smartbackend/dao/HuntingDao.java" afterPath="$PROJECT_DIR$/src/main/java/com/smartbackend/dao/HuntingDao.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/smartbackend/service/IHuntingService.java" afterPath="$PROJECT_DIR$/src/main/java/com/smartbackend/service/IHuntingService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/smartbackend/service/impl/HuntingService.java" afterPath="$PROJECT_DIR$/src/main/java/com/smartbackend/service/impl/HuntingService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/mapping/HuntingMapper.xml" afterPath="$PROJECT_DIR$/src/main/resources/mapping/HuntingMapper.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -26,18 +30,20 @@
       <file leaf-file-name="IHuntingService.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/smartbackend/service/IHuntingService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="9" column="16" lean-forward="false" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="16" />
-              <folding />
+            <state relative-caret-position="450">
+              <caret line="18" column="12" lean-forward="false" selection-start-line="18" selection-start-column="12" selection-end-line="18" selection-end-column="12" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TraineeController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/smartbackend/controller/TraineeController.java">
+      <file leaf-file-name="HuntingService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/smartbackend/service/impl/HuntingService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="245">
-              <caret line="87" column="0" lean-forward="true" selection-start-line="87" selection-start-column="0" selection-end-line="87" selection-end-column="0" />
+            <state relative-caret-position="353">
+              <caret line="38" column="31" lean-forward="false" selection-start-line="38" selection-start-column="31" selection-end-line="38" selection-end-column="31" />
               <folding />
             </state>
           </provider>
@@ -46,21 +52,37 @@
       <file leaf-file-name="HuntingController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/smartbackend/controller/HuntingController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="70">
-              <caret line="81" column="0" lean-forward="true" selection-start-line="81" selection-start-column="0" selection-end-line="81" selection-end-column="0" />
+            <state relative-caret-position="353">
+              <caret line="94" column="5" lean-forward="true" selection-start-line="94" selection-start-column="5" selection-end-line="94" selection-end-column="5" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ResumeController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/smartbackend/controller/ResumeController.java">
+      <file leaf-file-name="HuntingMapper.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/mapping/HuntingMapper.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="645">
-              <caret line="109" column="10" lean-forward="false" selection-start-line="109" selection-start-column="10" selection-end-line="109" selection-end-column="10" />
+            <state relative-caret-position="103">
+              <caret line="15" column="67" lean-forward="true" selection-start-line="15" selection-start-column="67" selection-end-line="15" selection-end-column="67" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <marker date="1523447034064" expanded="true" signature="1399:1715" ph="SELECT hunti... hunting" />
+                <marker date="1523447034064" expanded="true" signature="1647:1714" ph="SELECT DISTI... job" />
+                <marker date="1523447034064" expanded="true" signature="1793:1900" ph="SELECT * FRO... hunting" />
+                <marker date="1523447034064" expanded="true" signature="1949:2079" ph="INSERT INTO hunting... " />
+                <marker date="1523447034064" expanded="true" signature="2133:2271" ph="UPDATE hunti... " />
+                <marker date="1523447034064" expanded="true" signature="2323:2477" ph="UPDATE hunti... " />
+                <marker date="1523447034064" expanded="true" signature="2530:2687" ph="UPDATE hunti... " />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="HuntingDao.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/smartbackend/dao/HuntingDao.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="375">
+              <caret line="19" column="5" lean-forward="false" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -68,42 +90,9 @@
       <file leaf-file-name="RecruiterController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/smartbackend/controller/RecruiterController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1105">
-              <caret line="80" column="55" lean-forward="true" selection-start-line="80" selection-start-column="55" selection-end-line="80" selection-end-column="55" />
+            <state relative-caret-position="975">
+              <caret line="76" column="29" lean-forward="true" selection-start-line="76" selection-start-column="29" selection-end-line="76" selection-end-column="29" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="JobController.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/smartbackend/controller/JobController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-343">
-              <caret line="65" column="17" lean-forward="true" selection-start-line="65" selection-start-column="17" selection-end-line="65" selection-end-column="17" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="JobMapper.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/mapping/JobMapper.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="39" lean-forward="true" selection-start-line="0" selection-start-column="39" selection-end-line="0" selection-end-column="39" />
-              <folding>
-                <marker date="1523436685817" expanded="true" signature="1905:1972" ph="select * fro... user" />
-                <marker date="1523436685817" expanded="true" signature="2047:2072" ph="select * fro... job" />
-                <marker date="1523436685817" expanded="true" signature="2182:2247" ph="select * fro... job" />
-                <marker date="1523436685817" expanded="true" signature="2331:2437" ph="select * fro... job" />
-                <marker date="1523436685817" expanded="true" signature="2485:3061" ph="INSERT INTO recruiter... " />
-                <marker date="1523436685817" expanded="true" signature="3118:3203" ph="UPDATE job S... " />
-                <marker date="1523436685817" expanded="true" signature="3283:3399" ph="SELECT * FRO... job" />
-                <marker date="1523436685817" expanded="true" signature="3327:3398" ph="SELECT jobid... hunting" />
-                <marker date="1523436685817" expanded="true" signature="3482:3594" ph="SELECT * FRO... job" />
-                <marker date="1523436685817" expanded="true" signature="3522:3593" ph="SELECT jobid... hunting" />
-                <marker date="1523436685817" expanded="true" signature="3679:3793" ph="SELECT * FRO... job" />
-                <marker date="1523436685817" expanded="true" signature="3719:3792" ph="SELECT jobid... hunting" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -138,7 +127,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/resources/mapping/UserMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/smartbackend/service/IUserService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/smartbackend/service/impl/UserService.java" />
         <option value="$PROJECT_DIR$/src/main/resources/spring-mybatis.xml" />
@@ -161,10 +149,6 @@
         <option value="$PROJECT_DIR$/src/main/resources/mapping/HuntingMapper.fxml" />
         <option value="$PROJECT_DIR$/src/main/java/com/smartbackend/model/Resume.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/smartbackend/model/Hunting.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/smartbackend/dao/HuntingDao.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/mapping/HuntingMapper.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/smartbackend/service/IHuntingService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/smartbackend/service/impl/HuntingService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/smartbackend/model/Recruiter.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/smartbackend/model/Trainee.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
@@ -184,11 +168,16 @@
         <option value="$PROJECT_DIR$/src/main/java/com/smartbackend/service/ITraineeService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/smartbackend/service/impl/TraineeService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/smartbackend/controller/TraineeController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/smartbackend/controller/ResumeController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/smartbackend/controller/HuntingController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/smartbackend/controller/RecruiterController.java" />
         <option value="$PROJECT_DIR$/src/main/resources/mapping/JobMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/smartbackend/model/Job.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/smartbackend/controller/ResumeController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/smartbackend/utils/HuntingListIO.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/mapping/HuntingMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/smartbackend/dao/HuntingDao.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/smartbackend/service/IHuntingService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/smartbackend/service/impl/HuntingService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/smartbackend/controller/HuntingController.java" />
       </list>
     </option>
   </component>
@@ -213,8 +202,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="750" />
-    <option name="width" value="1177" />
+    <option name="x" value="350" />
+    <option name="width" value="1577" />
     <option name="height" value="1038" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -591,7 +580,7 @@
       <workItem from="1523278977083" duration="11527000" />
       <workItem from="1523337035769" duration="24672000" />
       <workItem from="1523412697805" duration="3411000" />
-      <workItem from="1523430358121" duration="3899000" />
+      <workItem from="1523430358121" duration="11034000" />
     </task>
     <servers />
   </component>
@@ -607,14 +596,14 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="184082000" />
+    <option name="totallyTimeSpent" value="191217000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16173121" sideWeight="0.5107296" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.107061505" sideWeight="0.5107296" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20967741" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -633,10 +622,10 @@
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.0397351" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16173121" sideWeight="0.4892704" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.107061505" sideWeight="0.4892704" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17972103" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25268242" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -663,13 +652,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/User.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="7" column="7" lean-forward="false" selection-start-line="7" selection-start-column="7" selection-end-line="7" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/index.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="325">
@@ -727,13 +709,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/smartbackend/dao/HuntingDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="350">
-          <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/smartbackend/model/Resume.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="50">
@@ -745,13 +720,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1875">
           <caret line="129" column="44" lean-forward="false" selection-start-line="129" selection-start-column="44" selection-end-line="129" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/smartbackend/service/impl/HuntingService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="700">
-          <caret line="34" column="13" lean-forward="false" selection-start-line="34" selection-start-column="13" selection-end-line="34" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -956,80 +924,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mapping/HuntingMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="825">
-          <caret line="33" column="13" lean-forward="false" selection-start-line="33" selection-start-column="13" selection-end-line="33" selection-end-column="13" />
-          <folding>
-            <marker date="1523195276140" expanded="true" signature="939:1046" ph="SELECT * FRO... hunting" />
-            <marker date="1523195276140" expanded="true" signature="1095:1225" ph="INSERT INTO hunting... " />
-            <marker date="1523195276140" expanded="true" signature="1279:1417" ph="UPDATE hunti... " />
-            <marker date="1523195276140" expanded="true" signature="1469:1623" ph="UPDATE hunti... " />
-            <marker date="1523195276140" expanded="true" signature="1676:1833" ph="UPDATE hunti... " />
-          </folding>
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/4.0.2.RELEASE/spring-web-4.0.2.RELEASE.jar!/org/springframework/web/method/support/InvocableHandlerMethod.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="287">
           <caret line="136" column="0" lean-forward="false" selection-start-line="136" selection-start-column="0" selection-end-line="136" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/smartbackend/service/IHuntingService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="9" column="16" lean-forward="false" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/smartbackend/controller/TraineeController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="245">
-          <caret line="87" column="0" lean-forward="true" selection-start-line="87" selection-start-column="0" selection-end-line="87" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/smartbackend/model/Job.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="550">
-          <caret line="22" column="31" lean-forward="true" selection-start-line="22" selection-start-column="31" selection-end-line="22" selection-end-column="31" />
-          <folding>
-            <element signature="e#3591#3592#0" expanded="true" />
-            <element signature="e#3625#3626#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/smartbackend/controller/HuntingController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="70">
-          <caret line="81" column="0" lean-forward="true" selection-start-line="81" selection-start-column="0" selection-end-line="81" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/smartbackend/controller/ResumeController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="645">
-          <caret line="109" column="10" lean-forward="false" selection-start-line="109" selection-start-column="10" selection-end-line="109" selection-end-column="10" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/smartbackend/controller/RecruiterController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1105">
-          <caret line="80" column="55" lean-forward="true" selection-start-line="80" selection-start-column="55" selection-end-line="80" selection-end-column="55" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1057,12 +955,125 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/smartbackend/controller/JobController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/smartbackend/model/Job.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-343">
-          <caret line="65" column="17" lean-forward="true" selection-start-line="65" selection-start-column="17" selection-end-line="65" selection-end-column="17" />
+        <state relative-caret-position="550">
+          <caret line="22" column="31" lean-forward="true" selection-start-line="22" selection-start-column="31" selection-end-line="22" selection-end-column="31" />
           <folding />
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/smartbackend/utils/HuntingListIO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="9" column="31" lean-forward="false" selection-start-line="9" selection-start-column="31" selection-end-line="9" selection-end-column="31" />
+          <folding>
+            <element signature="e#253#254#0" expanded="true" />
+            <element signature="e#296#297#0" expanded="true" />
+            <element signature="e#330#331#0" expanded="true" />
+            <element signature="e#362#363#0" expanded="true" />
+            <element signature="e#389#390#0" expanded="true" />
+            <element signature="e#430#431#0" expanded="true" />
+            <element signature="e#462#463#0" expanded="true" />
+            <element signature="e#493#494#0" expanded="true" />
+            <element signature="e#520#521#0" expanded="true" />
+            <element signature="e#560#561#0" expanded="true" />
+            <element signature="e#592#593#0" expanded="true" />
+            <element signature="e#624#625#0" expanded="true" />
+            <element signature="e#652#653#0" expanded="true" />
+            <element signature="e#694#695#0" expanded="true" />
+            <element signature="e#728#729#0" expanded="true" />
+            <element signature="e#762#763#0" expanded="true" />
+            <element signature="e#792#793#0" expanded="true" />
+            <element signature="e#838#839#0" expanded="true" />
+            <element signature="e#876#877#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/smartbackend/controller/ResumeController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-72">
+          <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/smartbackend/controller/JobController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="122" column="57" lean-forward="true" selection-start-line="122" selection-start-column="57" selection-end-line="122" selection-end-column="57" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/smartbackend/controller/RecruiterController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="975">
+          <caret line="76" column="29" lean-forward="true" selection-start-line="76" selection-start-column="29" selection-end-line="76" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/smartbackend/dao/HuntingDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="19" column="5" lean-forward="false" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/smartbackend/service/IHuntingService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="18" column="12" lean-forward="false" selection-start-line="18" selection-start-column="12" selection-end-line="18" selection-end-column="12" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/smartbackend/controller/TraineeController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="97" column="62" lean-forward="true" selection-start-line="97" selection-start-column="62" selection-end-line="97" selection-end-column="62" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/smartbackend/service/impl/HuntingService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="353">
+          <caret line="38" column="31" lean-forward="false" selection-start-line="38" selection-start-column="31" selection-end-line="38" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/smartbackend/controller/HuntingController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="353">
+          <caret line="94" column="5" lean-forward="true" selection-start-line="94" selection-start-column="5" selection-end-line="94" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mapping/HuntingMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="103">
+          <caret line="15" column="67" lean-forward="true" selection-start-line="15" selection-start-column="67" selection-end-line="15" selection-end-column="67" />
+          <folding>
+            <marker date="1523447034064" expanded="true" signature="1399:1715" ph="SELECT hunti... hunting" />
+            <marker date="1523447034064" expanded="true" signature="1647:1714" ph="SELECT DISTI... job" />
+            <marker date="1523447034064" expanded="true" signature="1793:1900" ph="SELECT * FRO... hunting" />
+            <marker date="1523447034064" expanded="true" signature="1949:2079" ph="INSERT INTO hunting... " />
+            <marker date="1523447034064" expanded="true" signature="2133:2271" ph="UPDATE hunti... " />
+            <marker date="1523447034064" expanded="true" signature="2323:2477" ph="UPDATE hunti... " />
+            <marker date="1523447034064" expanded="true" signature="2530:2687" ph="UPDATE hunti... " />
+          </folding>
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
       </provider>
     </entry>
   </component>
