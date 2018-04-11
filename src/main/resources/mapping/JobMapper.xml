@@ -20,6 +20,8 @@
         <result column="recruiterWechat" property="recruiterWechat" jdbcType="VARCHAR" />
         <result column="status" property="status" jdbcType="INTEGER"/>
         <result column="picture" property="picture" jdbcType="VARCHAR" />
+        <result column="gmt_created" property="gmt_created"/>
+        <result column="gmt_modified" property="gmt_modified"/>
     </resultMap>
     <select id="getJobById" resultMap="BaseResultMap" parameterType="java.lang.Integer">
         select *

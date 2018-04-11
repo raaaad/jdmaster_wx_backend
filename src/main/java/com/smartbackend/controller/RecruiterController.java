@@ -91,7 +91,6 @@ public class RecruiterController {
         response.setHeader("Access-Control-Allow-Origin", "*");
         /* 星号表示所有的异域请求都可以接受， */
         response.setHeader("Access-Control-Allow-Methods", "GET,POST");
-        List<Recruiter> recruiters = this.recruiterService.getRecruiters();
-        return recruiters;
+        return this.recruiterService.getRecruiters();
     }
 }

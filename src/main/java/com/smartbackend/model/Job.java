@@ -20,6 +20,8 @@ public class Job {
     private String recruiterWechat;
     private String picture;
     private Integer status;
+    private String gmt_created;
+    private String gmt_modified;
 
     public Integer getId() {
         return id;
@@ -163,5 +165,21 @@ public class Job {
 
     public void setStatus(Integer status) {
         this.status = status;
+    }
+
+    public String getGmt_created() {
+        return gmt_created;
+    }
+
+    public void setGmt_created(String gmt_created) {
+        this.gmt_created = gmt_created;
+    }
+
+    public String getGmt_modified() {
+        return gmt_modified;
+    }
+
+    public void setGmt_modified(String gmt_modified) {
+        this.gmt_modified = gmt_modified;
     }
 }
