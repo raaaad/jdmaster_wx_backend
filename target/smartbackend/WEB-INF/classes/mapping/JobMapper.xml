@@ -48,7 +48,7 @@
                          picture,`status`,gmt_created,gmt_modified)
         VALUES (#{company},#{position},${workDayPerWeek},${minSalary},${maxSalary},#{address},#{education},#{major},
                            ${recruitNumber},${monthForWork},${correction},#{endTime},#{hrPosition},#{description},#{recruiterWechat},
-                           #{picture},1,NOW(),NOW())
+                           #{picture},#{status,jdbcType=INTEGER},NOW(),NOW())
     </insert>
     <update id="changeJobStatus">
         UPDATE job SET `status`= #{status,jdbcType=INTEGER} WHERE id = #{id,jdbcType=INTEGER}

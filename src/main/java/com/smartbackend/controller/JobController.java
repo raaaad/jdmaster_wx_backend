@@ -146,8 +146,9 @@ public class JobController {
         String description  = request.getParameter("description");
         String hrPosition = request.getParameter("hrPosition");
         String recruiterWechat = request.getParameter("recruiterWechat");
+        Integer status = Integer.parseInt(request.getParameter("status"));
         this.jobService.addJob(company,position,workdayperweek,minSalary,maxSalary,address,education,major,recruitNumber,
-                monthForWork,correction,endTime,description,hrPosition,recruiterWechat,url);
+                monthForWork,correction,endTime,description,hrPosition,recruiterWechat,url,status);
         Resp resp = new Resp(true,"发布成功！");
         return resp;
     }

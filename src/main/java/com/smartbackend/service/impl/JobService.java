@@ -16,9 +16,9 @@ public class JobService implements IJobService {
     @Override
     public void addJob(String company, String position, Integer workDayPerWeek,Integer minSalary, Integer maxSalary,String address,
                        String education, String major, Integer recruitNumber,Integer monthForWork, Integer correction,String endTime,
-                       String description,String hrPosition, String recruiterWechat,String picture){
+                       String description,String hrPosition, String recruiterWechat,String picture,Integer status){
         this.jobDao.addJob(company,position,workDayPerWeek,minSalary,maxSalary,address,education,major,recruitNumber,monthForWork,
-                 correction,endTime,description,hrPosition,recruiterWechat,picture);
+                 correction,endTime,description,hrPosition,recruiterWechat,picture,status);
     }
 
     @Override

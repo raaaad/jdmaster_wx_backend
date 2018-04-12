@@ -12,7 +12,7 @@ public interface JobDao {
                    @Param("education")String education, @Param("major")String major, @Param("recruitNumber")Integer recruitNumber,
                    @Param("monthForWork")Integer monthForWork, @Param("correction")Integer correction, @Param("endTime")String endTime,
                    @Param("description")String description,@Param("hrPosition")String hrPosition,@Param("recruiterWechat")String recruiterWechat,
-                   @Param("picture")String picture);
+                   @Param("picture")String picture,@Param("status")Integer status);
 
     Job getJobById(@Param("id")Integer id);
 
