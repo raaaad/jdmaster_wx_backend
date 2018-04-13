@@ -139,8 +139,18 @@ public class JobController {
         String address = request.getParameter("address");
         String education = request.getParameter("education");
         String major = request.getParameter("major");
-        Integer recruitNumber = Integer.parseInt(request.getParameter("recruitNumber"));
-        Integer monthForWork = Integer.parseInt(request.getParameter("monthForWork"));
+        Integer recruitNumber;
+        if(!request.getParameter("recruitNumber").isEmpty()){
+            recruitNumber = Integer.parseInt(request.getParameter("recruitNumber"));
+        }else{
+            recruitNumber = 0;
+        }
+        Integer monthForWork;
+        if(!request.getParameter("monthForWork").isEmpty()){
+            monthForWork = Integer.parseInt(request.getParameter("monthForWork"));
+        }else{
+            monthForWork = 0;
+        }
         Integer correction = Integer.parseInt(request.getParameter("correction"));
         String endTime = request.getParameter("endTime");
         String description  = request.getParameter("description");
