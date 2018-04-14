@@ -94,36 +94,47 @@ public class HuntingController {
         return this.huntingService.getTraineeInfoByHRWeChat(wechat);
     }
 
-    @RequestMapping(value="/sendResume",method= RequestMethod.POST)
+    //投递默认简历
+    @RequestMapping(value="/sendCurResume",method= RequestMethod.POST)
     @ResponseBody
-    public Resp sendResume(MultipartFile file,HttpServletRequest request, HttpServletResponse response)throws ServletException,IOException{
+    public Resp sendCurResume(HttpServletRequest request, HttpServletResponse response)throws ServletException,IOException{
         String wechat = request.getParameter("wechat");
         Integer jobId = Integer.parseInt(request.getParameter("jobId"));
-        Integer type = Integer.parseInt(request.getParameter("type"));
         Integer resumeId;
         Resp resp;
         //用户上传默认简历
-        if(type==1){
-            if(ObjectUtil.isNullOrEmpty(this.resumeService.getCurResume(wechat))){
-                resp = new Resp(false,"您暂未上传默认简历!");
-                return resp;
-            }
-            resumeId = this.resumeService.getCurResume(wechat).getId();
-        }else{
-            //投递新简历，但不将其设置为默认简历
-            String path = request.getSession().getServletContext().getRealPath("images");
-            String fileName = file.getOriginalFilename();
-            File dir = new File(path,fileName);
-            if(!dir.exists()){
-                dir.mkdirs();
-            }
-            String url = Constants.PIC_PATH +fileName;
-            //MultipartFile自带的解析方法
-            file.transferTo(dir);
-            System.out.println("path>>"+ path);
-            this.resumeService.addResume(wechat,url,0);
-            resumeId = this.resumeService.getResumeIdByUrl(url);
+        if(ObjectUtil.isNullOrEmpty(this.resumeService.getCurResume(wechat))){
+            resp = new Resp(false,"您暂未上传默认简历!");
+            return resp;
         }
+        resumeId = this.resumeService.getCurResume(wechat).getId();
+
+        this.huntingService.sendResume(wechat,jobId,resumeId);
+        resp = new Resp(true,"投递成功");
+        return resp;
+    }
+
+    //投递新简历
+    @RequestMapping(value="/sendNewResume",method= RequestMethod.POST)
+    @ResponseBody
+    public Resp sendNewResume(MultipartFile file,HttpServletRequest request, HttpServletResponse response)throws ServletException,IOException{
+        String wechat = request.getParameter("wechat");
+        Integer jobId = Integer.parseInt(request.getParameter("jobId"));
+        Integer resumeId;
+        Resp resp;
+        //投递新简历，但不将其设置为默认简历
+        String path = request.getSession().getServletContext().getRealPath("images");
+        String fileName = file.getOriginalFilename();
+        File dir = new File(path,fileName);
+        if(!dir.exists()){
+            dir.mkdirs();
+        }
+        String url = Constants.PIC_PATH +fileName;
+        //MultipartFile自带的解析方法
+        file.transferTo(dir);
+        System.out.println("path>>"+ path);
+        this.resumeService.addResume(wechat,url,0);
+        resumeId = this.resumeService.getResumeIdByUrl(url);
         this.huntingService.sendResume(wechat,jobId,resumeId);
         resp = new Resp(true,"投递成功");
         return resp;

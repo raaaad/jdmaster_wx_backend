@@ -54,6 +54,7 @@
     <select id="getJobs" resultMap="BaseResultMap">
         select *
         from job
+        WHERE `status` =1
     </select>
     <select id="getMyJobs" resultMap="BaseResultMap" parameterType="java.lang.String">
         select *
