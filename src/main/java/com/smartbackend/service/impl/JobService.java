@@ -3,6 +3,7 @@ package com.smartbackend.service.impl;
 import com.smartbackend.dao.JobDao;
 import com.smartbackend.model.Job;
 import com.smartbackend.service.IJobService;
+import com.smartbackend.utils.JobIO;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -52,11 +53,14 @@ public class JobService implements IJobService {
             return this.jobDao.getJobsViewd(wechat);
         } else if ("follow".equals(status)) {
             return this.jobDao.getJobsFollowed(wechat);
-        } else if("delivery".equals(status)){
-            return this.jobDao.getJobsDeliveried(wechat);
         }else{
             return this.jobDao.getJobs();
         }
+    }
+
+    @Override
+    public List<JobIO> getJobsDelivered(String wechat){
+        return this.jobDao.getJobsDeliveried(wechat);
     }
 
 }

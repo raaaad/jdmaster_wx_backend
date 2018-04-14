@@ -1,6 +1,7 @@
 package com.smartbackend.dao;
 
 import com.smartbackend.model.Job;
+import com.smartbackend.utils.JobIO;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
@@ -28,5 +29,5 @@ public interface JobDao {
 
     List<Job> getJobsFollowed(@Param("wechat")String wechat);
 
-    List<Job> getJobsDeliveried(@Param("wechat")String wechat);
+    List<JobIO> getJobsDeliveried(@Param("wechat")String wechat);
 }

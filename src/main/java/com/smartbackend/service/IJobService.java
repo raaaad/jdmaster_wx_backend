@@ -1,6 +1,7 @@
 package com.smartbackend.service;
 
 import com.smartbackend.model.Job;
+import com.smartbackend.utils.JobIO;
 import jdk.nashorn.internal.scripts.JO;
 import org.apache.ibatis.annotations.Param;
 
@@ -22,4 +23,6 @@ public interface IJobService {
     public void changeJobStatus(Integer id,Integer status);
 
     public List<Job> getJobsByStatus(String status,String wechat);
+
+    public List<JobIO> getJobsDelivered(String wechat);
 }

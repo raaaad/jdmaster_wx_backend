@@ -3,6 +3,7 @@ package com.smartbackend.controller;
 import com.smartbackend.model.Job;
 import com.smartbackend.service.IJobService;
 import com.smartbackend.utils.Constants;
+import com.smartbackend.utils.JobIO;
 import com.smartbackend.utils.Resp;
 import jdk.nashorn.internal.scripts.JO;
 import org.springframework.stereotype.Controller;
@@ -51,7 +52,7 @@ public class JobController {
 
     }
 
-    //学生根据自己的浏览、关注或投递状态获取工作列表
+    //学生根据自己的浏览、关注状态获取工作列表
     @RequestMapping("getJobsByStatus")
     @ResponseBody
     public List<Job> getJobsByStatus(HttpServletRequest request, HttpServletResponse response) throws ServletException,IOException{
@@ -63,6 +64,19 @@ public class JobController {
         String status = request.getParameter("status");
         String wechat = request.getParameter("wechat");
         return this.jobService.getJobsByStatus(status,wechat);
+    }
+
+    //学生获取自己投递过的工作列表
+    @RequestMapping("getJobsByDelivered")
+    @ResponseBody
+    public List<JobIO> getJobsDelivered(HttpServletRequest request, HttpServletResponse response) throws ServletException,IOException{
+        response.setContentType("text/html;charset=utf-8");
+        /* 设置响应头允许ajax跨域访问 */
+        response.setHeader("Access-Control-Allow-Origin", "*");
+        /* 星号表示所有的异域请求都可以接受， */
+        response.setHeader("Access-Control-Allow-Methods", "GET,POST");
+        String wechat = request.getParameter("wechat");
+        return this.jobService.getJobsDelivered(wechat);
     }
 
     //HR获取自己发布的工作列表
@@ -151,7 +165,12 @@ public class JobController {
         }else{
             monthForWork = 0;
         }
-        Integer correction = Integer.parseInt(request.getParameter("correction"));
+        Integer correction;
+        if(!request.getParameter("correction").isEmpty()){
+            correction = Integer.parseInt(request.getParameter("correction"));
+        }else{
+            correction = -100;
+        }
         String endTime = request.getParameter("endTime");
         String description  = request.getParameter("description");
         String hrPosition = request.getParameter("hrPosition");

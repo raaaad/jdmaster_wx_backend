@@ -23,6 +23,29 @@
         <result column="gmt_created" property="gmt_created"/>
         <result column="gmt_modified" property="gmt_modified"/>
     </resultMap>
+    <resultMap id="JobIOResultMap" type="com.smartbackend.utils.JobIO">
+        <id column="jobid" property="id" jdbcType="INTEGER" />
+        <result column="company" property="company" jdbcType="VARCHAR" />
+        <result column="position" property="position" jdbcType="VARCHAR" />
+        <result column="workdayperweek" property="workdayperweek" jdbcType="INTEGER" />
+        <result column="address" property="address" jdbcType="VARCHAR" />
+        <result column="minSalary" property="minSalary" jdbcType="INTEGER" />
+        <result column="maxSalary" property="maxSalary" jdbcType="INTEGER" />
+        <result column="education" property="education" jdbcType="VARCHAR" />
+        <result column="major" property="major" jdbcType="VARCHAR" />
+        <result column="recruitnumber" property="recruitnumber" jdbcType="INTEGER" />
+        <result column="monthforwork" property="monthforwork" jdbcType="INTEGER" />
+        <result column="correction" property="correction" jdbcType="INTEGER" />
+        <result column="hrposition" property="hrposition" jdbcType="VARCHAR" />
+        <result column="endtime" property="endtime" jdbcType="VARCHAR" />
+        <result column="description" property="description" jdbcType="VARCHAR" />
+        <result column="recruiterWechat" property="recruiterWechat" jdbcType="VARCHAR" />
+        <result column="status" property="status" jdbcType="INTEGER"/>
+        <result column="picture" property="picture" jdbcType="VARCHAR" />
+        <result column="gmt_created" property="gmt_created"/>
+        <result column="gmt_modified" property="gmt_modified"/>
+        <result column="feedback" property="feedback" jdbcType="INTEGER"/>
+    </resultMap>
     <select id="getJobById" resultMap="BaseResultMap" parameterType="java.lang.Integer">
         select *
         from job
@@ -61,8 +84,7 @@
         SELECT * FROM job WHERE id in (
         SELECT jobid FROM hunting WHERE traineewechat = #{wechat} AND follow= 1)
     </select>
-    <select id="getJobsDeliveried" resultMap="BaseResultMap">
-        SELECT * FROM job WHERE id in (
-        SELECT jobid FROM hunting WHERE traineewechat = #{wechat} AND delivery= 1)
+    <select id="getJobsDeliveried" resultMap="JobIOResultMap">
+        SELECT * FROM hunting LEFT JOIN job ON hunting.jobid=job.id WHERE traineewechat = #{wechat} AND delivery=1
     </select>
 </mapper>
