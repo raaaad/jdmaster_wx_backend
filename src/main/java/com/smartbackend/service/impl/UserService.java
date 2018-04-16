@@ -16,4 +16,14 @@ public class UserService implements IUserService {
     public User getUserById(int id){
         return this.userDao.getUserById(id);
     }
+
+    @Override
+    public User getUserByWechat(String wechat){
+        return this.userDao.getUserByWechat(wechat);
+    }
+
+    @Override
+    public void addUser(String wechat,String nickname){
+        this.userDao.addUser(wechat,nickname);
+    }
 }

@@ -3,13 +3,18 @@
 <mapper namespace="com.smartbackend.dao.UserDao" >
     <resultMap id="BaseResultMap" type="com.smartbackend.model.User" >
         <id column="id" property="id" jdbcType="INTEGER" />
-        <result column="name" property="name" jdbcType="VARCHAR" />
+        <result column="nickname" property="name" jdbcType="VARCHAR" />
+        <result column="wechat" property="wechat" jdbcType="VARCHAR"/>
     </resultMap>
     <select id="getUserById" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
         select *
-        from user
+        from admin
         where id = #{id,jdbcType=INTEGER}
     </select>
-
-
+    <select id="getUserByWechat" resultMap="BaseResultMap">
+        SELECT * FROM admin WHERE wechat=#{wechat}
+    </select>
+    <insert id="addUser">
+        INSERT INTO admin(nickname,wechat) VALUES (#{nickname},#{wechat})
+    </insert>
 </mapper>

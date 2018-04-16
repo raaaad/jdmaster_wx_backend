@@ -54,14 +54,16 @@ public class TraineeController {
         String graduateTime = request.getParameter("graduateTime");
         String headpic = request.getParameter("headpic");
         String nickname =request.getParameter("nickname");
-        this.traineeService.addTrainee(name,gender,school,telephone,major,minor,wechat,workdayperweek,startwork,email,education,graduateTime,headpic,nickname);
-        //返回值给微信小程序
-        //Writer out = response.getWriter();
-        //out.write("恭喜您，已成功注册！");
-        //out.flush();
-
-        Resp resp = new Resp(true,"已成功注册！");
-        return resp;
+        Trainee trainee = this.traineeService.getTraineeByWechat(wechat);
+        Resp resp;
+        if(ObjectUtil.isNullOrEmpty(trainee)){
+            this.traineeService.addTrainee(name,gender,school,telephone,major,minor,wechat,workdayperweek,startwork,email,education,graduateTime,headpic,nickname);
+            resp = new Resp(true,"已成功注册！");
+            return resp;
+        }else {
+            resp = new Resp(false,"该账号已注册过！");
+            return resp;
+        }
     }
 
     @RequestMapping("login")
@@ -76,12 +78,33 @@ public class TraineeController {
         String headpic = request.getParameter("headpic");
         String nickname = request.getParameter("nickname");
         Trainee trainee = this.traineeService.getTraineeByWechat(wechat);
-        this.traineeService.updatePic(wechat,headpic,nickname);
+        Resp resp;
         if(ObjectUtil.isNullOrEmpty(trainee)){
-            Resp resp = new Resp(false,"请注册！");
+             resp = new Resp(false,"请注册！");
             return resp;
         }else {
-            Resp resp = new Resp(true,"登陆成功！");
+            resp = new Resp(true,"登陆成功！");
+            this.traineeService.updatePic(wechat,headpic,nickname);
+            return resp;
+        }
+    }
+
+    @RequestMapping("delete")
+    @ResponseBody
+    public Resp traineeDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException,IOException{
+        response.setContentType("text/html;charset=utf-8");
+        /* 设置响应头允许ajax跨域访问 */
+        response.setHeader("Access-Control-Allow-Origin", "*");
+        /* 星号表示所有的异域请求都可以接受， */
+        response.setHeader("Access-Control-Allow-Methods", "GET,POST");
+        String wechat = request.getParameter("wechat");
+        Resp resp;
+        if(ObjectUtil.isNullOrEmpty(this.traineeService.getTraineeByWechat(wechat))){
+            resp = new Resp(false,"当前账户不存在！");
+            return resp;
+        }else {
+            this.traineeService.deleteTrainee(wechat);
+            resp = new Resp(true,"注销成功！");
             return resp;
         }
     }

@@ -12,4 +12,6 @@ public interface IRecruiterService {
     public List<Recruiter> getRecruiters();
 
     public void updatePic(String wechat, String headpic,String nickname);
+
+    public void deleteRecruiter(String wechat);
 }

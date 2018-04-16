@@ -3,6 +3,7 @@ package com.smartbackend.model;
 public class User {
     private Integer id;
     private String name;
+    private String wechat;
 
     public Integer getId() {
         return id;
@@ -18,5 +19,13 @@ public class User {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getWechat() {
+        return wechat;
+    }
+
+    public void setWechat(String wechat) {
+        this.wechat = wechat;
     }
 }

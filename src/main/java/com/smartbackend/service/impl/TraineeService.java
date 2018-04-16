@@ -48,4 +48,11 @@ public class TraineeService implements ITraineeService{
     public void updatePic(String wechat,String headpic,String nickname){
         this.traineeDao.updatePic(wechat,headpic,nickname);
     }
+
+    @Override
+    public void deleteTrainee(String wechat){
+        this.traineeDao.deleteHunting(wechat);
+        this.traineeDao.deleteResume(wechat);
+        this.traineeDao.deleteTrainee(wechat);
+    }
 }

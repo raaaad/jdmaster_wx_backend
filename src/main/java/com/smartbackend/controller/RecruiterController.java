@@ -37,15 +37,37 @@ public class RecruiterController {
         String wechat = request.getParameter("wechat");
         String headpic = request.getParameter("headpic");
         String nickname = request.getParameter("nickname");
-        this.recruiterService.insertRecruiter(company,telephone,email,wechat,headpic,nickname);
+        Recruiter recruiter = this.recruiterService.getRecruiterByWechat(wechat);
+        Resp resp;
+        if(ObjectUtil.isNullOrEmpty(recruiter)){
+            this.recruiterService.insertRecruiter(company,telephone,email,wechat,headpic,nickname);
+            resp = new Resp(true,"已成功注册！");
+            return resp;
+        }else {
+            resp = new Resp(false,"该账号已注册过！");
+            return resp;
+        }
 
-        //返回值给微信小程序
-        //Writer out = response.getWriter();
-        //out.write("恭喜您，已成功注册！");
-        //out.flush();
+    }
 
-        Resp resp = new Resp(true,"已成功注册！");
-        return resp;
+    @RequestMapping("delete")
+    @ResponseBody
+    public Resp recruiterDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException,IOException{
+        response.setContentType("text/html;charset=utf-8");
+        /* 设置响应头允许ajax跨域访问 */
+        response.setHeader("Access-Control-Allow-Origin", "*");
+        /* 星号表示所有的异域请求都可以接受， */
+        response.setHeader("Access-Control-Allow-Methods", "GET,POST");
+        String wechat = request.getParameter("wechat");
+        Resp resp;
+        if(ObjectUtil.isNullOrEmpty(this.recruiterService.getRecruiterByWechat(wechat))){
+            resp = new Resp(false,"当前账户不存在！");
+            return resp;
+        }else {
+            this.recruiterService.deleteRecruiter(wechat);
+            resp = new Resp(true,"注销成功！");
+            return resp;
+        }
     }
 
     @RequestMapping("login")
@@ -61,11 +83,12 @@ public class RecruiterController {
         String nickname = request.getParameter("nickname");
         Recruiter recruiter = this.recruiterService.getRecruiterByWechat(wechat);
         this.recruiterService.updatePic(wechat,headpic,nickname);
+        Resp resp;
         if(ObjectUtil.isNullOrEmpty(recruiter)){
-            Resp resp = new Resp(false,"请注册！");
+            resp = new Resp(false,"请注册！");
             return resp;
         }else {
-            Resp resp = new Resp(true,"登陆成功");
+            resp = new Resp(true,"登陆成功");
             return resp;
         }
     }

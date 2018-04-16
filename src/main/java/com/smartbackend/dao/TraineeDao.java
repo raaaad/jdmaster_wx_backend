@@ -17,4 +17,7 @@ public interface TraineeDao {
     List<Trainee> getViewList(@Param("jobId")Integer jobId);
     List<Trainee> getFollowList(@Param("jobId")Integer jobId);
     void updatePic(@Param("wechat")String wechat,@Param("headpic")String headpic,@Param("nickname")String nickname);
+    void deleteTrainee(@Param("wechat")String wechat);
+    void deleteHunting(@Param("wechat")String wechat);
+    void deleteResume(@Param("wechat")String wechat);
 }

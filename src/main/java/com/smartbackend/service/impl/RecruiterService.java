@@ -32,4 +32,10 @@ public class RecruiterService implements IRecruiterService {
     public void updatePic(String wechat,String headpic,String nickname){
         this.recruiterDao.updatePic(wechat,headpic,nickname);
     }
+
+    @Override
+    public void deleteRecruiter(String wechat){
+        this.recruiterDao.deleteJob(wechat);
+        this.recruiterDao.deleteRecruiter(wechat);
+    }
 }

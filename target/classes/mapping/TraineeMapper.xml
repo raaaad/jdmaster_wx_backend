@@ -43,4 +43,13 @@
     <update id="updatePic">
         UPDATE trainee SET headpic = #{headpic},nickname = #{nickname} WHERE wechat = #{wechat}
     </update>
+    <delete id="deleteTrainee" parameterType="java.lang.String">
+        DELETE FROM trainee WHERE wechat=#{wechat};
+    </delete>
+    <delete id="deleteHunting" parameterType="java.lang.String">
+        DELETE FROM hunting WHERE traineewechat=#{wechat};
+    </delete>
+    <delete id="deleteResume" parameterType="java.lang.String">
+        DELETE FROM `resume` WHERE traineewechat=#{wechat};
+    </delete>
 </mapper>

@@ -26,4 +26,10 @@
     <update id="updatePic">
         UPDATE recruiter SET headpic = #{headpic},nickname = #{nickname} WHERE wechat = #{wechat}
     </update>
+    <delete id="deleteRecruiter">
+        DELETE FROM recruiter WHERE wechat=#{wechat}
+    </delete>
+    <delete id="deleteJob">
+        DELETE FROM job WHERE recruiterWechat=#{wechat}
+    </delete>
 </mapper>
