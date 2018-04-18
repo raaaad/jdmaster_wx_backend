@@ -116,4 +116,6 @@ public class RecruiterController {
         response.setHeader("Access-Control-Allow-Methods", "GET,POST");
         return this.recruiterService.getRecruiters();
     }
+
+
 }
