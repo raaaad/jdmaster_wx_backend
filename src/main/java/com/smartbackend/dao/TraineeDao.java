@@ -20,4 +20,9 @@ public interface TraineeDao {
     void deleteTrainee(@Param("wechat")String wechat);
     void deleteHunting(@Param("wechat")String wechat);
     void deleteResume(@Param("wechat")String wechat);
+    void modifyInfo(@Param("name")String name,@Param("gender")String gender,@Param("school")String school,
+                    @Param("telephone")String telephone,@Param("major")String major,@Param("minor")String minor,
+                    @Param("wechat")String wechat,@Param("workdayperweek")Integer workdayperweek,
+                    @Param("startwork")String startwork,@Param("email")String email,@Param("education")String education,
+                    @Param("graduateTime")String graduateTime);
 }

@@ -3,6 +3,7 @@ package com.smartbackend.service.impl;
 import com.smartbackend.dao.RecruiterDao;
 import com.smartbackend.model.Recruiter;
 import com.smartbackend.service.IRecruiterService;
+import com.smartbackend.utils.Resp;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -37,5 +38,11 @@ public class RecruiterService implements IRecruiterService {
     public void deleteRecruiter(String wechat){
         this.recruiterDao.deleteJob(wechat);
         this.recruiterDao.deleteRecruiter(wechat);
+    }
+
+    @Override
+    public Resp modifyInfo(String company,String phone,String email,String wechat){
+        this.recruiterDao.modifyInfo(company,phone,email,wechat);
+        return new Resp(true,"修改成功！");
     }
 }

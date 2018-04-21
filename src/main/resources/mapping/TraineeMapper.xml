@@ -52,4 +52,9 @@
     <delete id="deleteResume" parameterType="java.lang.String">
         DELETE FROM `resume` WHERE traineewechat=#{wechat};
     </delete>
+    <update id="modifyInfo">
+        UPDATE trainee SET name = #{name},gender = #{gender},school=#{school},telephone = #{telephone},major=#{major},minor=#{minor},
+            workdayperweek= ${workdayperweek},startwork=#{startwork},
+            email=#{email},education=#{education},graduatetime=#{graduateTime} WHERE wechat = #{wechat}
+    </update>
 </mapper>

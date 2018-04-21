@@ -32,4 +32,7 @@
     <delete id="deleteJob">
         DELETE FROM job WHERE recruiterWechat=#{wechat}
     </delete>
+    <update id="modifyInfo">
+        UPDATE recruiter SET company = #{company},telephone = #{phone},email =#{email},gmt_modified=NOW() WHERE wechat = #{wechat}
+    </update>
 </mapper>

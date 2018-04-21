@@ -3,6 +3,7 @@ package com.smartbackend.service.impl;
 import com.smartbackend.dao.TraineeDao;
 import com.smartbackend.model.Trainee;
 import com.smartbackend.service.ITraineeService;
+import com.smartbackend.utils.Resp;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -54,5 +55,12 @@ public class TraineeService implements ITraineeService{
         this.traineeDao.deleteHunting(wechat);
         this.traineeDao.deleteResume(wechat);
         this.traineeDao.deleteTrainee(wechat);
+    }
+
+    @Override
+    public Resp modifyInfo(String name,String gender,String school,String telephone,String major,String minor,
+                           String wechat,Integer workdayperweek,String startwork,String email,String education,String graduateTime){
+        this.traineeDao.modifyInfo(name,gender,school,telephone,major,minor,wechat,workdayperweek,startwork,email,education,graduateTime);
+        return new Resp(true,"修改成功！");
     }
 }

@@ -66,6 +66,36 @@ public class TraineeController {
         }
     }
 
+    @RequestMapping("modifyInfo")
+    @ResponseBody
+    public Resp modifyInfo(HttpServletRequest request, HttpServletResponse response) throws ServletException,IOException {
+        response.setContentType("text/html;charset=utf-8");
+        /* 设置响应头允许ajax跨域访问 */
+        response.setHeader("Access-Control-Allow-Origin", "*");
+        /* 星号表示所有的异域请求都可以接受， */
+        response.setHeader("Access-Control-Allow-Methods", "GET,POST");
+
+        //获取微信小程序get的参数值并打印
+        String name = request.getParameter("name");
+        String gender = request.getParameter("gender");
+        String school = request.getParameter("school");
+        String telephone = request.getParameter("telephone");
+        String major = request.getParameter("major");
+        String minor = request.getParameter("minor");
+        String education = request.getParameter("education");
+        String wechat = request.getParameter("wechat");
+        Integer workdayperweek;
+        if(!request.getParameter("workdayperweek").isEmpty()){
+            workdayperweek = Integer.parseInt(request.getParameter("workdayperweek"));
+        }else{
+            workdayperweek = 0;
+        }
+        String startwork = request.getParameter("startwork");
+        String email = request.getParameter("email");
+        String graduateTime = request.getParameter("graduateTime");
+        return this.traineeService.modifyInfo(name,gender,school,telephone,major,minor,wechat,workdayperweek,startwork,email,education,graduateTime);
+    }
+
     @RequestMapping("login")
     @ResponseBody
     public Resp traineeLogin(HttpServletRequest request, HttpServletResponse response) throws ServletException,IOException{

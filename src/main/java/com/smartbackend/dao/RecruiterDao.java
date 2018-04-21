@@ -1,6 +1,7 @@
 package com.smartbackend.dao;
 
 import com.smartbackend.model.Recruiter;
+import com.smartbackend.utils.Resp;
 import com.sun.org.apache.regexp.internal.RE;
 import org.apache.ibatis.annotations.Param;
 
@@ -20,4 +21,6 @@ public interface RecruiterDao {
     void deleteRecruiter(@Param("wechat")String wechat);
 
     void deleteJob(@Param("wechat")String wechat);
+
+    void modifyInfo(@Param("company")String company,@Param("phone")String phone,@Param("email")String email,@Param("wechat")String wechat);
 }
